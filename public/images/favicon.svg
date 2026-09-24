@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- Metallic Gold Gradient for Arc -->
+    <linearGradient id="favGold" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C5932A" />
+      <stop offset="30%" stop-color="#FFF0A0" />
+      <stop offset="60%" stop-color="#ECC665" />
+      <stop offset="100%" stop-color="#D4A034" />
+    </linearGradient>
+
+    <!-- Deep Luxury Royal Tech Background Gradient -->
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#090E17" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+
+  <!-- High-Tech Rounded Squircle Container -->
+  <rect width="128" height="128" rx="34" fill="url(#favBg)" />
+  <rect x="2" y="2" width="124" height="124" rx="32" stroke="url(#favGold)" stroke-width="2.5" fill="none" opacity="0.85" />
+
+  <!-- Iconic Sweeping Golden Arc -->
+  <path d="M 28 88 C 16 68, 16 38, 38 24 C 64 8, 98 16, 114 38 C 96 22, 68 18, 44 28 C 28 36, 26 62, 28 88 Z" 
+        fill="url(#favGold)" />
+  
+  <!-- Shimmer Highlight Sparkle -->
+  <circle cx="34" cy="30" r="4" fill="#FFFFFF" />
+
+  <!-- Bold, Ultra-Legible "SM" Monogram -->
+  <text x="64" y="84" 
+        text-anchor="middle" 
+        font-family="'Playfair Display', 'Georgia', 'Baskerville', serif" 
+        font-weight="900" 
+        font-size="52" 
+        fill="#FFFFFF" 
+        letter-spacing="-1">
+    SM
+  </text>
+  
+  <!-- Subtle "SHOP" bottom accent tag -->
+  <rect x="36" y="96" width="56" height="15" rx="7.5" fill="url(#favGold)" />
+  <text x="64" y="107" 
+        text-anchor="middle" 
+        font-family="'Plus Jakarta Sans', 'Arial', sans-serif" 
+        font-weight="900" 
+        font-size="9" 
+        fill="#0A0A0A" 
+        letter-spacing="1">
+    SHOP
+  </text>
+</svg>

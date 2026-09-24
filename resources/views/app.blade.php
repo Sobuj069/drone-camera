@@ -6,8 +6,10 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title inertia>{{ config('app.name', 'SM Shop — Premium Drones, Cameras & Tech Gadgets') }}</title>
-        <link rel="icon" type="image/png" href="/images/favicon.png">
-        <link rel="apple-touch-icon" href="/images/favicon.png">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+        <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png?v=3">
+        <link rel="shortcut icon" href="/favicon.ico?v=3">
+        <link rel="apple-touch-icon" href="/favicon.png?v=3">
 
         <!-- Scripts -->
         @viteReactRefresh
