@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" width="920" height="400" fill="none">
+  <defs>
+    <!-- Metallic Gold Foil Gradient -->
+    <linearGradient id="goldMetallic" x1="10%" y1="90%" x2="90%" y2="10%">
+      <stop offset="0%" stop-color="#C5932A" />
+      <stop offset="20%" stop-color="#E2B755" />
+      <stop offset="35%" stop-color="#FFF3C4" />
+      <stop offset="50%" stop-color="#ECC665" />
+      <stop offset="70%" stop-color="#B8821F" />
+      <stop offset="85%" stop-color="#FDE89C" />
+      <stop offset="100%" stop-color="#D4A034" />
+    </linearGradient>
+    
+    <!-- Gold Shimmer Highlight Filter -->
+    <filter id="goldShine" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#7B5610" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Golden Crescent Arc -->
+  <g filter="url(#goldShine)">
+    <path d="M 220 280 C 145 230, 140 120, 260 70 C 420 8, 640 45, 780 145 C 620 62, 420 32, 280 82 C 180 120, 185 205, 220 280 Z" 
+          fill="url(#goldMetallic)" />
+    
+    <!-- Top-left Bright Gold Flare/Sparkle -->
+    <circle cx="215" cy="118" r="16" fill="#FFFCE6" opacity="0.6" filter="blur(8px)" />
+    <circle cx="215" cy="118" r="4" fill="#FFFFFF" />
+  </g>
+
+  <!-- Main Headline Typography: "SM Shop" -->
+  <text x="500" y="215" 
+        text-anchor="middle" 
+        font-family="'Playfair Display', 'Baskerville', 'Georgia', serif" 
+        font-weight="900" 
+        font-size="116" 
+        fill="#0A0A0A" 
+        letter-spacing="-1.5">
+    SM Shop
+  </text>
+
+  <!-- Subtitle Typography: "GADGETS & ELECTRONICS" -->
+  <text x="500" y="278" 
+        text-anchor="middle" 
+        font-family="'Plus Jakarta Sans', 'Inter', 'Arial', sans-serif" 
+        font-weight="800" 
+        font-size="27" 
+        fill="#141414" 
+        letter-spacing="0.32em">
+    GADGETS &amp; ELECTRONICS
+  </text>
+</svg>
