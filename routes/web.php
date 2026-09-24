@@ -6,6 +6,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +19,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Products & 3D Interactive Showcase
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
+
+// Cart, Checkout & Orders
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/order-confirmation/{orderNumber}', [OrderController::class, 'show'])->name('order.confirmation');
 
 // Compare Specs
 Route::get('/compare', [CompareController::class, 'index'])->name('compare');

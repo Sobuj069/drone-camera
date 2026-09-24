@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/react';
 import MainLayout from '../Layouts/MainLayout';
 import HeroBannerSlider from '../Components/HeroBannerSlider';
 import ProductCard2x2 from '../Components/ProductCard2x2';
+import FeaturedProductsSection from '../Components/FeaturedProductsSection';
 import Home3DTeaser from '../Components/Home3DTeaser';
 import CinematicParallax from '../Components/CinematicParallax';
 import InnovationSection from '../Components/InnovationSection';
@@ -28,7 +29,10 @@ export default function Home({
             {/* 2. 2x2 Flagship Product Showcase Cards */}
             <ProductCard2x2 products={showcaseProducts} />
 
-            {/* 3. Interactive 3D Drone Studio */}
+            {/* 3. Popular Store Products & Drones Catalog (with Add to Cart) */}
+            <FeaturedProductsSection products={featuredProducts} />
+
+            {/* 4. Interactive 3D Drone Studio */}
             {flagship3dProduct && (
                 <Home3DTeaser product={flagship3dProduct} />
             )}

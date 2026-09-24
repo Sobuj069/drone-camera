@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { Search, User, Globe, ShoppingBag, Menu, X, ChevronDown } from 'lucide-react';
 import SearchModal from './SearchModal';
+import { useCart } from '../Context/CartContext';
 
 export default function Navbar() {
     const page = usePage() || {};
     const { navCategories = [] } = page.props || {};
     const url = page.url || '';
+    const { totalItems = 0 } = useCart();
 
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -142,6 +144,21 @@ export default function Navbar() {
                                 </div>
                             )}
                         </div>
+
+                        {/* Cart Button with Counter Badge */}
+                        <Link
+                            href="/cart"
+                            aria-label="Shopping Cart"
+                            className="relative p-1 sm:p-1.5 text-gray-700 hover:text-[#0070d5] transition flex items-center"
+                            title="Shopping Cart"
+                        >
+                            <ShoppingBag className="w-[18px] h-[18px]" />
+                            {totalItems > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-[#0070d5] text-white text-[9px] font-extrabold min-w-4 h-4 px-1 rounded-full flex items-center justify-center shadow-xs">
+                                    {totalItems > 99 ? '99+' : totalItems}
+                                </span>
+                            )}
+                        </Link>
 
                         {/* Store Button */}
                         <Link

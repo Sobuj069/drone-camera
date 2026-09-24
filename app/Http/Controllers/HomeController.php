@@ -18,8 +18,8 @@ class HomeController extends Controller
             ->get();
 
         $featuredProducts = Product::with('category')
-            ->where('is_featured', true)
             ->orderBy('order')
+            ->take(8)
             ->get();
 
         $showcaseProducts = Product::with('category')
