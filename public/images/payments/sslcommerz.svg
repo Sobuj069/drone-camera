@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 32" width="115" height="32">
+  <rect width="115" height="32" rx="4" fill="#FFFFFF"/>
+  <g transform="translate(6, 4)">
+    <!-- Security Shield -->
+    <path d="M3 5L12 1.5L21 5V14C21 19 12 23 12 23C12 23 3 19 3 14V5Z" fill="#005A9C"/>
+    <path d="M7.5 12L11 15.5L16.5 9" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- SSLCOMMERZ Text -->
+    <text x="25" y="13" fill="#005A9C" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="11">SSL</text>
+    <text x="47" y="13" fill="#EE3124" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="11">COMMERZ</text>
+    <text x="25" y="21" fill="#707473" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="800" fontSize="6.5" letterSpacing="0.8">SECURE PAYMENTS</text>
+  </g>
+</svg>

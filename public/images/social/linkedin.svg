@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="24" fill="#0077B5"/>
+  <g fill="#FFFFFF">
+    <!-- 'i' dot -->
+    <circle cx="15" cy="14.5" r="2.5"/>
+    <!-- 'i' stem -->
+    <rect x="12.5" y="19" width="5" height="14" rx="0.6"/>
+    <!-- 'n' stem and rounded arch -->
+    <path d="M21 19h4.8v2c.9-1.4 2.6-2.3 4.8-2.3 3.9 0 5.8 2.5 5.8 6.5V33h-5v-6.3c0-1.8-.5-3-2.2-3-1.6 0-2.4 1.1-2.9 2.2V33h-5.3V19z"/>
+  </g>
+</svg>
