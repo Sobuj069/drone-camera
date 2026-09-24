@@ -26,19 +26,55 @@ import {
 import { motion } from 'framer-motion';
 
 export default function Show({ product, relatedProducts = [] }) {
+    if (!product) {
+        return (
+            <MainLayout>
+                <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center bg-white">
+                    <h2 className="text-xl font-bold text-gray-900 mb-2">Product Not Found</h2>
+                    <p className="text-xs text-gray-500 mb-6">The requested product could not be located in our catalog.</p>
+                    <Link href="/products" className="px-6 py-2.5 bg-[#0070d5] hover:bg-[#005bb5] text-white text-xs font-bold rounded-full transition shadow-md">
+                        Return to Catalog
+                    </Link>
+                </div>
+            </MainLayout>
+        );
+    }
+
     const { addToCart } = useCart();
     const [selectedPackage, setSelectedPackage] = useState('fly_more');
     const [quantity, setQuantity] = useState(1);
-    const [selectedColor, setSelectedColor] = useState(
-        product.colors?.[0]?.name || 'Standard Graphite Grey'
-    );
-    const [activeTab, setActiveTab] = useState('overview');
 
+    const rawColors = product.colors;
+    const productColors = Array.isArray(rawColors)
+        ? rawColors
+        : typeof rawColors === 'string'
+        ? JSON.parse(rawColors || '[]')
+        : [];
+
+    const rawSpecs = product.specs;
+    const productSpecs = (typeof rawSpecs === 'object' && rawSpecs !== null)
+        ? rawSpecs
+        : typeof rawSpecs === 'string'
+        ? JSON.parse(rawSpecs || '{}')
+        : {};
+
+    const rawFeatures = product.overview_features;
+    const productFeatures = Array.isArray(rawFeatures)
+        ? rawFeatures
+        : typeof rawFeatures === 'string'
+        ? JSON.parse(rawFeatures || '[]')
+        : [];
+
+    const [selectedColor, setSelectedColor] = useState(
+        productColors[0]?.name || 'Standard Graphite Grey'
+    );
+
+    const basePrice = Number(product.price) || 999;
     const packages = [
         {
             id: 'standard',
             name: 'Standard Package',
-            price: Number(product.price) || 999,
+            price: basePrice,
             items: [
                 `${product.name} Aircraft`,
                 'AERO RC 2 Smart Controller',
@@ -51,7 +87,7 @@ export default function Show({ product, relatedProducts = [] }) {
         {
             id: 'fly_more',
             name: 'Fly More Combo (Recommended)',
-            price: (Number(product.price) || 999) + 499,
+            price: basePrice + 499,
             items: [
                 `${product.name} Aircraft`,
                 'AERO RC Pro HD Screen Controller',
@@ -98,12 +134,12 @@ export default function Show({ product, relatedProducts = [] }) {
                         <span className="text-xs text-[#0070d5] font-bold uppercase tracking-wider hidden sm:inline">
                             {product.category?.name || 'Flagship Drone'} &bull;
                         </span>
-                        <span className="text-sm sm:text-base font-black text-gray-950 truncate max-w-[200px] sm:max-w-none">
+                        <span className="text-sm sm:text-base font-black text-gray-950 truncate max-w-[180px] sm:max-w-none">
                             {product.name}
                         </span>
                     </div>
 
-                    <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="flex items-center space-x-2 sm:space-x-4">
                         <div className="text-right hidden sm:block">
                             <span className="text-[10px] text-gray-400 uppercase block">Starting at</span>
                             <span className="text-sm font-black text-gray-950">
@@ -119,16 +155,17 @@ export default function Show({ product, relatedProducts = [] }) {
                         </button>
                         <button
                             onClick={handleBuyNow}
-                            className="px-5 py-2 rounded-full bg-[#0070d5] hover:bg-[#005bb5] text-white text-xs font-bold shadow-md shadow-blue-500/20 transition-all cursor-pointer"
+                            className="px-4 sm:px-5 py-2 rounded-full bg-[#0070d5] hover:bg-[#005bb5] text-white text-xs font-bold shadow-md shadow-blue-500/20 transition-all cursor-pointer flex items-center gap-1"
                         >
-                            Buy Now
+                            <Zap className="w-3.5 h-3.5" />
+                            <span>Buy Now</span>
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* 1. Hero Intro */}
-            <section className="pt-8 sm:pt-12 pb-6 sm:pb-8 bg-[#f8f9fa] border-b border-gray-200">
+            <section className="pt-8 sm:pt-12 pb-6 sm:pb-8 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
                     {/* Breadcrumbs */}
                     <nav className="flex items-center justify-center gap-1.5 text-xs text-gray-500 mb-2">
@@ -153,14 +190,14 @@ export default function Show({ product, relatedProducts = [] }) {
                 </div>
             </section>
 
-            {/* 2. Interactive 3D Canvas Studio */}
+            {/* 2. Interactive HD Studio & 3D Stage */}
             <section className="py-6 sm:py-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 <ProductViewer3D product={product} />
             </section>
 
             {/* 3. Standout Innovation Highlights */}
-            {product.overview_features && product.overview_features.length > 0 && (
-                <section className="py-12 sm:py-20 bg-white">
+            {productFeatures && productFeatures.length > 0 && (
+                <section className="py-12 sm:py-20 bg-[#f8f9fa] border-t border-gray-100">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2">
                             <span className="text-xs font-bold uppercase tracking-widest text-[#0070d5]">
@@ -172,14 +209,14 @@ export default function Show({ product, relatedProducts = [] }) {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                            {product.overview_features.map((feature, idx) => (
+                            {productFeatures.map((feature, idx) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                    className="p-6 sm:p-8 rounded-3xl bg-[#f8f9fa] border border-gray-200/80 hover:border-blue-300 hover:shadow-lg transition-all group"
+                                    className="p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/80 hover:border-blue-300 hover:shadow-lg transition-all group"
                                 >
                                     <div className="text-2xl sm:text-3xl font-black text-[#0070d5] mb-2 font-mono group-hover:scale-105 transition-transform origin-left">
                                         {feature.stat}
@@ -198,8 +235,8 @@ export default function Show({ product, relatedProducts = [] }) {
             )}
 
             {/* 4. Complete Technical Specifications Table */}
-            {product.specs && (
-                <section className="py-12 sm:py-20 bg-[#f8f9fa] border-t border-gray-200 text-gray-900">
+            {Object.keys(productSpecs).length > 0 && (
+                <section className="py-12 sm:py-20 bg-white border-t border-gray-200 text-gray-900">
                     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-2">
                             <span className="text-xs font-bold uppercase tracking-widest text-[#0070d5]">
@@ -210,8 +247,8 @@ export default function Show({ product, relatedProducts = [] }) {
                             </h2>
                         </div>
 
-                        <div className="bg-white rounded-3xl p-5 sm:p-10 border border-gray-200/80 shadow-xs divide-y divide-gray-100">
-                            {Object.entries(product.specs).map(([specName, specVal], idx) => (
+                        <div className="bg-[#f8f9fa] rounded-3xl p-5 sm:p-10 border border-gray-200/80 shadow-xs divide-y divide-gray-200/80">
+                            {Object.entries(productSpecs).map(([specName, specVal], idx) => (
                                 <div
                                     key={idx}
                                     className="py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4"
@@ -315,7 +352,6 @@ export default function Show({ product, relatedProducts = [] }) {
 
                         {/* Quantity and Actions */}
                         <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-                            {/* Quantity Stepper */}
                             <div className="flex items-center border border-gray-300 rounded-2xl bg-white p-1 shadow-xs">
                                 <button
                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -378,16 +414,16 @@ export default function Show({ product, relatedProducts = [] }) {
                                 <Link
                                     key={rel.id}
                                     href={`/products/${rel.slug}`}
-                                    className="group rounded-3xl bg-white border border-gray-200 hover:border-blue-400 p-5 transition-all shadow-xs hover:shadow-lg"
+                                    className="group rounded-3xl bg-white border border-gray-200 hover:border-blue-400 p-5 transition-all shadow-xs hover:shadow-lg flex flex-col"
                                 >
-                                    <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-[#f8f9fa]">
+                                    <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-white flex items-center justify-center p-3 border border-gray-100">
                                         <img
                                             src={rel.thumbnail_url}
                                             alt={rel.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
-                                    <h4 className="text-sm sm:text-base font-bold text-gray-950 group-hover:text-[#0070d5] transition-colors">
+                                    <h4 className="text-sm sm:text-base font-bold text-gray-950 group-hover:text-[#0070d5] transition-colors line-clamp-1">
                                         {rel.name}
                                     </h4>
                                     <span className="text-xs text-gray-500 block mt-1 font-semibold">
@@ -412,14 +448,14 @@ export default function Show({ product, relatedProducts = [] }) {
                 <div className="flex items-center gap-2 flex-1 justify-end">
                     <button
                         onClick={handleAddToCart}
-                        className="p-2.5 rounded-xl bg-gray-100 text-gray-900 text-xs font-bold transition flex items-center justify-center"
+                        className="p-2.5 rounded-xl bg-gray-100 text-gray-900 text-xs font-bold transition flex items-center justify-center cursor-pointer"
                         title="Add to Cart"
                     >
                         <ShoppingBag className="w-4 h-4" />
                     </button>
                     <button
                         onClick={handleBuyNow}
-                        className="px-5 py-2.5 rounded-xl bg-[#0070d5] text-white text-xs font-bold shadow-md shadow-blue-500/20 transition-all flex items-center gap-1.5"
+                        className="px-5 py-2.5 rounded-xl bg-[#0070d5] text-white text-xs font-bold shadow-md shadow-blue-500/20 transition-all flex items-center gap-1.5 cursor-pointer"
                     >
                         <Zap className="w-3.5 h-3.5" />
                         <span>Buy Now</span>

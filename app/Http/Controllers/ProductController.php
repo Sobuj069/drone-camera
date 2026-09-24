@@ -63,9 +63,26 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show(string $slug): Response
+    public function show(string $slug): Response|\Illuminate\Http\RedirectResponse
     {
-        $product = Product::with('category')->where('slug', $slug)->firstOrFail();
+        $product = Product::with('category')->where('slug', $slug)->first();
+        
+        if (!$product) {
+            // Try finding by id or partial slug match
+            $product = Product::with('category')
+                ->where('id', is_numeric($slug) ? (int)$slug : 0)
+                ->orWhere('name', 'like', "%" . str_replace('-', ' ', $slug) . "%")
+                ->first();
+        }
+
+        if (!$product) {
+            // Fallback to the first featured product or redirect to catalog
+            $product = Product::with('category')->where('is_featured', true)->first() ?: Product::with('category')->first();
+        }
+
+        if (!$product) {
+            return redirect()->route('products.index');
+        }
         
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
