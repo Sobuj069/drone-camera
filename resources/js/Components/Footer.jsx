@@ -34,10 +34,10 @@ export default function Footer() {
                         <div>
                             <h4 className="text-white text-xs font-semibold mb-3">Service Plans</h4>
                             <ul className="space-y-2 text-[#8c9094]">
-                                <li><Link className="hover:text-white transition" href="/support">DJI Care Refresh</Link></li>
-                                <li><Link className="hover:text-white transition" href="/support">DJI Care Pro</Link></li>
-                                <li><Link className="hover:text-white transition" href="/support">DJI Care Enterprise</Link></li>
-                                <li><Link className="hover:text-white transition" href="/support">DJI Maintenance Program</Link></li>
+                                <li><Link className="hover:text-white transition" href="/support">SM Care Refresh</Link></li>
+                                <li><Link className="hover:text-white transition" href="/support">SM Care Pro</Link></li>
+                                <li><Link className="hover:text-white transition" href="/support">SM Care Enterprise</Link></li>
+                                <li><Link className="hover:text-white transition" href="/support">SM Maintenance Program</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -47,15 +47,15 @@ export default function Footer() {
                         <div>
                             <h4 className="text-white text-xs font-semibold mb-3">Where to Buy</h4>
                             <ul className="space-y-2 text-[#8c9094]">
-                                <li><Link className="hover:text-white transition" href="/products">DJI Online Store</Link></li>
+                                <li><Link className="hover:text-white transition" href="/products">SM Online Store</Link></li>
                                 <li><Link className="hover:text-white transition" href="/contact">Flagship Stores</Link></li>
-                                <li><Link className="hover:text-white transition" href="/contact">DJI-Operated Stores</Link></li>
+                                <li><Link className="hover:text-white transition" href="/contact">SM-Operated Stores</Link></li>
                                 <li><Link className="hover:text-white transition" href="/contact">Retail Stores</Link></li>
                                 <li><Link className="hover:text-white transition" href="/contact">Enterprise Retailers</Link></li>
                                 <li><Link className="hover:text-white transition" href="/contact">Agricultural Drone Dealer</Link></li>
                                 <li><Link className="hover:text-white transition" href="/contact">Delivery Drone Dealer</Link></li>
                                 <li><Link className="hover:text-white transition" href="/contact">Pro Retailers</Link></li>
-                                <li><Link className="hover:text-white transition" href="/products">DJI Store App</Link></li>
+                                <li><Link className="hover:text-white transition" href="/products">SM Store App</Link></li>
                             </ul>
                         </div>
                         <div>
@@ -73,7 +73,7 @@ export default function Footer() {
                             <h4 className="text-white text-xs font-semibold mb-3">Fly Safe</h4>
                             <ul className="space-y-2 text-[#8c9094]">
                                 <li><Link className="hover:text-white transition" href="/support">Fly Safe</Link></li>
-                                <li><Link className="hover:text-white transition" href="/support">DJI Flying Tips</Link></li>
+                                <li><Link className="hover:text-white transition" href="/support">SM Flying Tips</Link></li>
                             </ul>
                         </div>
                         <div>
@@ -95,8 +95,8 @@ export default function Footer() {
                         <ul className="space-y-2 text-[#8c9094]">
                             <li><Link className="hover:text-white transition" href="/news">Media Center</Link></li>
                             <li><Link className="hover:text-white transition" href="/compare">Buying Guides</Link></li>
-                            <li><Link className="hover:text-white transition" href="/about">DJI Trust Center</Link></li>
-                            <li><Link className="hover:text-white transition" href="/news">DJI Blog</Link></li>
+                            <li><Link className="hover:text-white transition" href="/about">SM Trust Center</Link></li>
+                            <li><Link className="hover:text-white transition" href="/news">SM Blog</Link></li>
                             <li><a className="text-[#0070d5] hover:underline transition" href="/admin">Admin Portal &rarr;</a></li>
                         </ul>
                     </div>
@@ -120,13 +120,13 @@ export default function Footer() {
                             <h4 className="text-white text-xs font-semibold mb-3">Community</h4>
                             <ul className="space-y-2 text-[#8c9094]">
                                 <li><a className="hover:text-white transition" href="#">SkyPixel</a></li>
-                                <li><a className="hover:text-white transition" href="#">DJI Forum</a></li>
+                                <li><a className="hover:text-white transition" href="#">SM Community Forum</a></li>
                                 <li><a className="hover:text-white transition" href="#">Developer</a></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="text-white text-xs font-semibold mb-1.5">Subscribe</h4>
-                            <p className="text-[11px] text-[#707473] mb-2.5">Get the latest news from SM Gadgets Shop</p>
+                            <p className="text-[11px] text-[#707473] mb-2.5">Get the latest news from SM Shop</p>
                             {/* Subscribe Input */}
                             <form onSubmit={handleNewsletterSubmit} className="relative flex items-center">
                                 <input

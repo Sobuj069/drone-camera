@@ -6,7 +6,7 @@ export default function CookieConsent() {
 
     useEffect(() => {
         try {
-            const consent = typeof window !== 'undefined' ? localStorage.getItem('dji_cookie_consent') : 'accepted';
+            const consent = typeof window !== 'undefined' ? localStorage.getItem('sm_cookie_consent') : 'accepted';
             if (!consent) {
                 const timer = setTimeout(() => setVisible(true), 1000);
                 return () => clearTimeout(timer);
@@ -16,14 +16,14 @@ export default function CookieConsent() {
 
     const handleAccept = () => {
         try {
-            localStorage.setItem('dji_cookie_consent', 'accepted');
+            localStorage.setItem('sm_cookie_consent', 'accepted');
         } catch (e) {}
         setVisible(false);
     };
 
     const handleReject = () => {
         try {
-            localStorage.setItem('dji_cookie_consent', 'rejected');
+            localStorage.setItem('sm_cookie_consent', 'rejected');
         } catch (e) {}
         setVisible(false);
     };

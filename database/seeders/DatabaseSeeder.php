@@ -100,20 +100,20 @@ class DatabaseSeeder extends Seeder
         // 3. Products with 100% Clean Studio Background Images
         Product::create([
             'category_id' => $catCameraDrones->id,
-            'name' => 'AERO Mavic 4 Pro',
+            'name' => 'SM Mavic 4 Pro',
             'slug' => 'aero-mavic-4-pro',
             'tagline' => 'Inspiration in Focus',
             'subtitle' => 'Tri-Camera Hasselblad Optical System with 46-Min Flight Time & 20km O4 Transmission',
             'badge' => 'Triple-Lens Flagship',
             'price' => 2199.00,
             'original_price' => 2499.00,
-            'description' => "The AERO Mavic 4 Pro initiates a new era of aerial imaging by housing three sensors and focal lengths into one compact airborne marvel. Equipped with a 4/3 CMOS Hasselblad camera and dual telephoto cameras, Mavic 4 Pro unlocks unprecedented creative perspectives, allowing you to capture stunning landscapes, explore photographic storytelling, and build cinematic masterpieces with unrivaled optical fidelity.",
+            'description' => "The SM Mavic 4 Pro initiates a new era of aerial imaging by housing three sensors and focal lengths into one compact airborne marvel. Equipped with a 4/3 CMOS Hasselblad camera and dual telephoto cameras, Mavic 4 Pro unlocks unprecedented creative perspectives, allowing you to capture stunning landscapes, explore photographic storytelling, and build cinematic masterpieces with unrivaled optical fidelity.",
             'overview_features' => [
                 ['title' => '4/3 CMOS Hasselblad Sensor', 'stat' => '20MP / 5.1K', 'desc' => 'Supports 12.8 stops of native dynamic range and natural color reproduction.'],
                 ['title' => 'Dual Telephoto Cameras', 'stat' => '70mm & 166mm', 'desc' => '3x optical telephoto with f/2.8 aperture and 7x optical telephoto for tight framing.'],
                 ['title' => 'Max Flight Endurance', 'stat' => '46 Minutes', 'desc' => 'Next-generation aerodynamic airframe combined with 5000 mAh high-capacity cell.'],
                 ['title' => 'Omnidirectional Obstacle Sensing', 'stat' => '360° LiDAR', 'desc' => 'Active avoidance with 6 wide-angle visual sensors and APAS 5.0 navigation.'],
-                ['title' => 'AeroLink O4 Video Transmission', 'stat' => '20 km HD', 'desc' => '1080p/60fps real-time ultra-responsive live feed with intelligent anti-jamming.'],
+                ['title' => 'SMLink O4 Video Transmission', 'stat' => '20 km HD', 'desc' => '1080p/60fps real-time ultra-responsive live feed with intelligent anti-jamming.'],
                 ['title' => 'Nightscape Cinema Mode', 'stat' => '12,800 ISO', 'desc' => 'Advanced AI noise reduction algorithm for pristine low-light twilight captures.'],
             ],
             'specs' => [
@@ -147,14 +147,14 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catCameraDrones->id,
-            'name' => 'AERO Neo 360',
+            'name' => 'SM Neo 360',
             'slug' => 'aero-neo-360',
             'tagline' => 'Palm Takeoff & AI Tracking',
             'subtitle' => 'Ultra-Lightweight 135g Vlog Drone with 4K Ultra-Stabilized Video',
             'badge' => 'Ultra-Lightweight',
             'price' => 349.00,
             'original_price' => 399.00,
-            'description' => "Effortlessly takeoff from the palm of your hand without a remote controller. AERO Neo 360 focuses on keeping you in the spotlight whether you are cycling, hiking, or recording spontaneous family moments.",
+            'description' => "Effortlessly takeoff from the palm of your hand without a remote controller. SM Neo 360 focuses on keeping you in the spotlight whether you are cycling, hiking, or recording spontaneous family moments.",
             'overview_features' => [
                 ['title' => 'Ultra-Light & Portable', 'stat' => '135 g', 'desc' => 'No registration required in most regions. Fits in your jacket pocket.'],
                 ['title' => 'Palm Takeoff & Landing', 'stat' => 'One Tap', 'desc' => 'Takeoff directly from your palm and track subjects using advanced computer vision.'],
@@ -185,14 +185,14 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catHandheld->id,
-            'name' => 'AERO Osmo Mobile 8',
+            'name' => 'SM Osmo Mobile 8',
             'slug' => 'aero-osmo-mobile-8',
             'tagline' => 'In Sync With Every Move',
             'subtitle' => 'Intelligent 3-Axis Smartphone Gimbal with ActiveTrack 6.0 and Magnetic Quick-Release',
             'badge' => 'Flagship Gimbal',
             'price' => 159.00,
             'original_price' => 189.00,
-            'description' => "Compact and effortlessly foldable, AERO Osmo Mobile 8 unfolds in a split second and connects magnetically to your phone. With an integrated extension rod and 3-axis brushless stabilization, capture flawless cinematic reels on the go.",
+            'description' => "Compact and effortlessly foldable, SM Osmo Mobile 8 unfolds in a split second and connects magnetically to your phone. With an integrated extension rod and 3-axis brushless stabilization, capture flawless cinematic reels on the go.",
             'overview_features' => [
                 ['title' => 'ActiveTrack 6.0', 'stat' => 'Deep Learning', 'desc' => 'Maintains target lock even when subjects turn around or get briefly obscured.'],
                 ['title' => 'Built-In Extension Rod', 'stat' => '215 mm', 'desc' => 'Reach higher angles and fit more friends in wide dynamic selfie group shots.'],
@@ -222,14 +222,14 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catCameraDrones->id,
-            'name' => 'AERO Inspire Cinema 3',
+            'name' => 'SM Inspire Cinema 3',
             'slug' => 'aero-inspire-cinema-3',
             'tagline' => 'Precision Mastery in Cinema',
             'subtitle' => 'Full-Frame 8K/75fps ProRes RAW Flying Cinema Platform with Centimeter-Level RTK',
             'badge' => 'Cinema 8K Full-Frame',
             'price' => 10999.00,
             'original_price' => 12499.00,
-            'description' => "Engineered for high-end film productions, AERO Inspire Cinema 3 combines a full-frame 8K sensor with transformative 360° pan gimbal movement, dual-operator control, and centimeter-accurate RTK trajectory repeatability.",
+            'description' => "Engineered for high-end film productions, SM Inspire Cinema 3 combines a full-frame 8K sensor with transformative 360° pan gimbal movement, dual-operator control, and centimeter-accurate RTK trajectory repeatability.",
             'overview_features' => [
                 ['title' => 'Full-Frame 8K Sensor', 'stat' => '8K/75fps RAW', 'desc' => 'Supports CinemaDNG and Apple ProRes RAW with 14+ stops dynamic range.'],
                 ['title' => 'Centimeter-Level RTK', 'stat' => 'Repeatable Routes', 'desc' => 'Execute complex camera moves with exact spatial repeatability.'],
@@ -258,14 +258,14 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catCameraDrones->id,
-            'name' => 'AERO Air 3S Dual Master',
+            'name' => 'SM Air 3S Dual Master',
             'slug' => 'aero-air-3s',
             'tagline' => 'Chase the View in Dual 4K',
             'subtitle' => '1-inch CMOS Primary & 70mm Medium Tele Camera with 14 Stops Dynamic Range',
             'badge' => 'Dual 1-Inch Master',
             'price' => 1099.00,
             'original_price' => 1299.00,
-            'description' => "AERO Air 3S redefines dual-camera travel drones: 1-inch primary and 70mm telephoto, both with 14 stops of dynamic range for landscapes and portraits that stand out. Enhanced with all-angle night vision avoidance.",
+            'description' => "SM Air 3S redefines dual-camera travel drones: 1-inch primary and 70mm telephoto, both with 14 stops of dynamic range for landscapes and portraits that stand out. Enhanced with all-angle night vision avoidance.",
             'overview_features' => [
                 ['title' => 'Dual Camera System', 'stat' => '1" CMOS + 70mm', 'desc' => 'Dual primary cameras with 14 stops dynamic range and Free Panorama mode.'],
                 ['title' => 'Nightscape Omnidirectional Sensing', 'stat' => 'Forward LiDAR', 'desc' => 'Safe flight navigation in dim light and nightscapes.'],
@@ -294,14 +294,14 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catCameraDrones->id,
-            'name' => 'AERO Avata 2 FPV Explorer',
+            'name' => 'SM Avata 2 FPV Explorer',
             'slug' => 'aero-avata-2-fpv',
             'tagline' => 'All-Out Immersion',
             'subtitle' => 'Easy ACRO 4K Ultra-Wide FPV Drone with Built-In Propeller Guard',
             'badge' => 'FPV High-Speed',
             'price' => 999.00,
             'original_price' => 1199.00,
-            'description' => "Step into immersive flight with AERO Avata 2: Easy ACRO flips, gesture-based motion control, and integrated propeller protection for agile, safe high-speed flights.",
+            'description' => "Step into immersive flight with SM Avata 2: Easy ACRO flips, gesture-based motion control, and integrated propeller protection for agile, safe high-speed flights.",
             'overview_features' => [
                 ['title' => '1/1.3" CMOS Super-Wide Camera', 'stat' => '4K/60fps HDR', 'desc' => '155° ultra-wide field of view with 10-bit D-Log M color profile.'],
                 ['title' => 'Integrated Propeller Guards', 'stat' => 'Turtle Mode', 'desc' => 'Durable unibody frame automatically flips back up if it lands upside down.'],
@@ -328,14 +328,14 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catAgriculture->id,
-            'name' => 'AERO Agras T50 Heavy',
+            'name' => 'SM Agras T50 Heavy',
             'slug' => 'aero-agras-t50',
             'tagline' => 'Intelligent Aerial Agriculture',
             'subtitle' => '50kg Spreading & 40kg Spraying Payload with Coaxial Dual-Rotor Power',
             'badge' => 'Heavy Agriculture',
             'price' => 14500.00,
             'original_price' => null,
-            'description' => "The AERO Agras T50 inherits a powerful coaxial twin-rotor propulsion system, delivering high spraying flow rates and uniform droplet dispersion for orchards, field crops, and hilly terrain.",
+            'description' => "The SM Agras T50 inherits a powerful coaxial twin-rotor propulsion system, delivering high spraying flow rates and uniform droplet dispersion for orchards, field crops, and hilly terrain.",
             'overview_features' => [
                 ['title' => 'Heavyweight Spraying', 'stat' => '40 kg (50L)', 'desc' => 'Dual atomizing centrifugal nozzles with 24 L/min high-flow pumping.'],
                 ['title' => 'Spreading Capacity', 'stat' => '50 kg (75L)', 'desc' => 'Spread fertilizer, seeds, and feed at up to 108 kg/min.'],
@@ -362,7 +362,7 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catEnterprise->id,
-            'name' => 'AERO Matrice 350 RTK',
+            'name' => 'SM Matrice 350 RTK',
             'slug' => 'aero-matrice-350-rtk',
             'tagline' => 'Industrial Enterprise Flagship',
             'subtitle' => 'IP55 Weather-Sealed Multi-Payload Heavy Drone with Night Vision & Thermal Inspection',
@@ -396,7 +396,7 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'category_id' => $catPower->id,
-            'name' => 'AERO PowerStation 2000 Pro',
+            'name' => 'SM PowerStation 2000 Pro',
             'slug' => 'aero-powerstation-2000',
             'tagline' => 'Uninterrupted Clean Power',
             'subtitle' => '1024Wh LiFePO4 Ultra-Fast Portable Power Station with 2600W AC Output',
@@ -431,7 +431,7 @@ class DatabaseSeeder extends Seeder
         // 4. Hero Banners
         Banner::create([
             'badge' => 'TRIPLE-LENS CAMERA DRONE',
-            'title' => 'AERO MAVIC 4 PRO',
+            'title' => 'SM MAVIC 4 PRO',
             'subtitle' => 'Inspiration in Focus — 4K/120fps Hasselblad Cinema System',
             'cta_text' => 'Learn More',
             'cta_link' => '/products/aero-mavic-4-pro',
@@ -444,7 +444,7 @@ class DatabaseSeeder extends Seeder
 
         Banner::create([
             'badge' => 'CINEMA 8K FULL-FRAME',
-            'title' => 'AERO INSPIRE CINEMA 3',
+            'title' => 'SM INSPIRE CINEMA 3',
             'subtitle' => 'Unprecedented Precision & Cinematic Fluidity for Feature Films',
             'cta_text' => 'Explore Cinema',
             'cta_link' => '/products/aero-inspire-cinema-3',
@@ -457,7 +457,7 @@ class DatabaseSeeder extends Seeder
 
         Banner::create([
             'badge' => 'PALM TAKEOFF VLOG DRONE',
-            'title' => 'AERO NEO 360',
+            'title' => 'SM NEO 360',
             'subtitle' => 'Fly Anywhere, Create Everywhere — 135g Ultra-Lightweight AI Follow',
             'cta_text' => 'Discover Neo',
             'cta_link' => '/products/aero-neo-360',
@@ -470,7 +470,7 @@ class DatabaseSeeder extends Seeder
 
         Banner::create([
             'badge' => 'FLAGSHIP SMARTPHONE GIMBAL',
-            'title' => 'AERO OSMO MOBILE 8',
+            'title' => 'SM OSMO MOBILE 8',
             'subtitle' => 'In Sync With Every Move — Magnetic Snap-On Stabilization',
             'cta_text' => 'Learn More',
             'cta_link' => '/products/aero-osmo-mobile-8',
@@ -483,12 +483,12 @@ class DatabaseSeeder extends Seeder
 
         // 5. Innovation Editorial Posts
         Post::create([
-            'title' => 'AERO Agriculture Annual Report: Empowering Precision Farming Across 50 Million Hectares',
+            'title' => 'SM Agriculture Annual Report: Empowering Precision Farming Across 50 Million Hectares',
             'slug' => 'aero-agriculture-annual-report',
             'category_tag' => 'Industry Insight Report',
             'subtitle' => 'How autonomous aerial spraying and multispectral field mapping reduce chemical runoff while increasing crop yields.',
             'excerpt' => 'Our 2026 Global Agricultural Outlook details the impact of autonomous drone fleets on food security, water preservation, and sustainable crop protection across 65 countries.',
-            'content' => "In 2026, precision agricultural technology reached a critical tipping point. Across the Americas, Europe, and Asia-Pacific, over 200,000 farmers and commercial growers adopted AERO Agras smart drone systems to survey, fertilize, and protect their crops with centimeter precision.\n\nBy leveraging high-resolution multispectral reflectance data and variable-rate spraying nozzles, growers reduced chemical pesticide usage by an average of 34% while increasing net yield by 11.2%.",
+            'content' => "In 2026, precision agricultural technology reached a critical tipping point. Across the Americas, Europe, and Asia-Pacific, over 200,000 farmers and commercial growers adopted SM Agras smart drone systems to survey, fertilize, and protect their crops with centimeter precision.\n\nBy leveraging high-resolution multispectral reflectance data and variable-rate spraying nozzles, growers reduced chemical pesticide usage by an average of 34% while increasing net yield by 11.2%.",
             'image_url' => '/images/innovation/innovation-agriculture-4k.jpg',
             'read_time' => '5 min read',
             'is_featured' => true,
@@ -496,12 +496,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::create([
-            'title' => 'AERO Ronin Cinema Gimbal System Honored with 2026 Scientific and Technical Award',
+            'title' => 'SM Ronin Cinema Gimbal System Honored with 2026 Scientific and Technical Award',
             'slug' => 'aero-ronin-cinema-scientific-award',
             'category_tag' => 'Engineering, Science & Technology',
             'subtitle' => 'Academy of Motion Picture Arts & Sciences recognizes groundbreaking developments in 4-axis camera stabilization.',
             'excerpt' => 'The Scientific and Technical Academy Awards celebrate innovations that have made substantial contributions to the craft of filmmaking.',
-            'content' => "The Academy of Motion Picture Arts and Sciences has presented AERO with a Scientific and Technical Achievement Award for the design and engineering of the Ronin 4D 4-axis camera stabilization system.",
+            'content' => "The Academy of Motion Picture Arts and Sciences has presented SM with a Scientific and Technical Achievement Award for the design and engineering of the Ronin 4D 4-axis camera stabilization system.",
             'image_url' => '/images/innovation/innovation-award-4k.jpg',
             'read_time' => '4 min read',
             'is_featured' => true,

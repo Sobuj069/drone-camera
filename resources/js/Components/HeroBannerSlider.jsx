@@ -6,32 +6,43 @@ export default function HeroBannerSlider({ banners = [] }) {
     const [currentIndex, setCurrentIndex] = useState(1); // Default to DJI Mavic 3 Pro (index 1)
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-    const slides = [
+    const fallbackSlides = [
         {
             id: 1,
-            badge: 'DUAL-PRIMARY CAMERA DRONE',
-            title: 'DJI AIR 3S',
-            subtitle: 'Chase the View',
-            cta_link: '/products/aero-neo-360',
-            image_url: '/images/hero/hero-air-3s-4k.jpg',
-        },
-        {
-            id: 2,
-            badge: 'Triple-Lens Camera Drone',
-            title: 'DJI MAVIC 3 PRO',
+            badge: 'TRIPLE-LENS CAMERA DRONE',
+            title: 'SM MAVIC 3 PRO',
             subtitle: 'Inspiration in Focus',
             cta_link: '/products/aero-mavic-4-pro',
             image_url: '/images/hero/hero-mavic-3-pro-4k.jpg',
         },
         {
+            id: 2,
+            badge: 'DUAL-PRIMARY CAMERA DRONE',
+            title: 'SM AIR 3S',
+            subtitle: 'Chase the View',
+            cta_link: '/products/aero-neo-360',
+            image_url: '/images/hero/hero-air-3s-4k.jpg',
+        },
+        {
             id: 3,
-            badge: 'Revolutionary Action Camera',
-            title: 'OSMO ACTION 5',
-            subtitle: 'All in One',
+            badge: 'REVOLUTIONARY ACTION CAMERA',
+            title: 'SM ACTION 5 PRO',
+            subtitle: 'All in One Ultra-Stabilized 4K',
             cta_link: '/products/aero-osmo-mobile-8',
             image_url: '/images/hero/hero-osmo-action-5-4k.jpg',
         },
     ];
+
+    const slides = Array.isArray(banners) && banners.length > 0
+        ? banners.map((b, i) => ({
+              id: b.id || i + 1,
+              badge: b.badge || 'SM FLAGSHIP',
+              title: (b.title || 'SM DRONE').replace(/\bDJI\b/gi, 'SM'),
+              subtitle: b.subtitle || '',
+              cta_link: b.cta_link || '/products',
+              image_url: b.image_url || '/images/hero/hero-mavic-3-pro-4k.jpg',
+          }))
+        : fallbackSlides;
 
     useEffect(() => {
         if (!isAutoPlaying) return;

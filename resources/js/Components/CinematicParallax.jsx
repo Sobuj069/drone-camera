@@ -7,25 +7,25 @@ export default function CinematicParallax() {
 
     const shots = [
         {
-            title: 'Shot on\nDJI RS 5',
+            title: 'Shot on\nSM RS 5',
             subtitle: 'Unshakable 4-Axis Cinematography in High-Speed Extreme Sports',
             link: '/products/aero-osmo-mobile-8',
             image_url: '/images/cinematic/shot-on-rs5-4k.jpg',
-            alt: 'Cinematographer operating the DJI RS 5 gimbal rig tracking a skateboarder',
+            alt: 'Cinematographer operating the SM RS 5 gimbal rig tracking a skateboarder',
         },
         {
-            title: 'Shot on\nDJI INSPIRE 3',
+            title: 'Shot on\nSM INSPIRE 3',
             subtitle: 'Epic 8K Aerial Sequences Over Icelandic Glaciers and Volcanic Canyons',
             link: '/products/aero-inspire-cinema-3',
             image_url: '/images/cinematic/shot-on-inspire3-4k.jpg',
-            alt: 'Inspire 3 8K cinema drone filming mountain landscape',
+            alt: 'SM Inspire 3 8K cinema drone filming mountain landscape',
         },
         {
-            title: 'Shot on\nDJI MAVIC 3 PRO',
+            title: 'Shot on\nSM MAVIC 3 PRO',
             subtitle: 'Golden Hour Mountain Ascents with Triple Focal Length Master Shots',
             link: '/products/aero-mavic-4-pro',
             image_url: '/images/cinematic/shot-on-mavic3-4k.jpg',
-            alt: 'Mavic 3 Pro capturing mountain landscape',
+            alt: 'SM Mavic 3 Pro capturing mountain landscape',
         },
     ];
 

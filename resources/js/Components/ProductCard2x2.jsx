@@ -5,30 +5,30 @@ export default function ProductCard2x2() {
     const cards = [
         {
             id: 'osmo-360',
-            title: 'OSMO 360',
+            title: 'SM OSMO 360',
             image_url: '/images/cards/card-osmo-360-hd.jpg',
-            image_alt: 'DJI Osmo 360 action cameras',
+            image_alt: 'SM Osmo 360 action cameras',
             href: '/products/aero-neo-360',
         },
         {
             id: 'dji-flip',
-            title: 'DJI FLIP',
+            title: 'SM FLIP DRONE',
             image_url: '/images/cards/card-dji-flip-hd.jpg',
-            image_alt: 'DJI Flip compact camera drone',
+            image_alt: 'SM Flip compact camera drone',
             href: '/products/aero-mavic-4-pro',
         },
         {
             id: 'osmo-mobile-8',
-            title: 'OSMO MOBILE 8',
+            title: 'SM OSMO MOBILE 8',
             image_url: '/images/cards/card-osmo-mobile-8-hd.jpg',
-            image_alt: 'Osmo Mobile 8 smartphone gimbal',
+            image_alt: 'SM Osmo Mobile 8 smartphone gimbal',
             href: '/products/aero-osmo-mobile-8',
         },
         {
             id: 'compare-drones',
             title: 'Compare Camera Drones',
             image_url: '/images/cards/card-compare-drones-hd.jpg',
-            image_alt: 'Compare DJI camera drones side by side',
+            image_alt: 'Compare SM camera drones side by side',
             href: '/compare',
         },
     ];

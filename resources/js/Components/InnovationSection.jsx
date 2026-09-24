@@ -2,24 +2,33 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 
 export default function InnovationSection({ posts = [] }) {
-    const cards = [
-        {
-            tag: 'Industry Insight Report',
-            title: 'DJI Agriculture Annual Report',
-            link: '/news/aero-agriculture-annual-report',
-            bgColor: 'bg-[#9bbad0]',
-            image_url: '/images/innovation/innovation-agriculture-4k.jpg',
-            alt: 'Agriculture spraying drone operating over lush green farmland',
-        },
-        {
-            tag: 'Engineering, Science & Technology',
-            title: 'DJI Ronin 2 Gimbal System Honored with 2025 Scientific and Technical Award',
-            link: '/news/aero-ronin-cinema-scientific-award',
-            bgColor: 'bg-[#89aabf]',
-            image_url: '/images/innovation/innovation-award-4k.jpg',
-            alt: 'DJI Ronin 2 Gimbal System honored with Scientific and Technical Award',
-        },
-    ];
+    const cards = Array.isArray(posts) && posts.length > 0
+        ? posts.slice(0, 2).map((p) => ({
+              tag: p.category_tag || 'Innovation Report',
+              title: p.title.replace(/\bDJI\b/gi, 'SM'),
+              link: `/news/${p.slug}`,
+              bgColor: 'bg-[#89aabf]',
+              image_url: p.image_url || '/images/innovation/innovation-agriculture-4k.jpg',
+              alt: p.title,
+          }))
+        : [
+              {
+                  tag: 'Industry Insight Report',
+                  title: 'SM Agriculture Annual Impact Report',
+                  link: '/news/aero-agriculture-annual-report',
+                  bgColor: 'bg-[#9bbad0]',
+                  image_url: '/images/innovation/innovation-agriculture-4k.jpg',
+                  alt: 'SM Agriculture spraying drone operating over farmland',
+              },
+              {
+                  tag: 'Engineering, Science & Technology',
+                  title: 'SM Ronin Cinema Gimbal Honored with Scientific Award',
+                  link: '/news/aero-ronin-cinema-scientific-award',
+                  bgColor: 'bg-[#89aabf]',
+                  image_url: '/images/innovation/innovation-award-4k.jpg',
+                  alt: 'SM Cinema Gimbal System honored with Scientific and Technical Award',
+              },
+          ];
 
     return (
         <section className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 pt-8 sm:pt-16 pb-6 sm:pb-12" data-purpose="innovation-section">

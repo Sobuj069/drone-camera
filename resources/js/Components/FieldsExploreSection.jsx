@@ -17,7 +17,7 @@ export default function FieldsExploreSection({ categories = [] }) {
             link: '/products?category=enterprise',
             bgColor: 'bg-[#344455]',
             image_url: '/images/fields/field-enterprise-4k.jpg',
-            alt: 'DJI Enterprise drone inspecting high-voltage power lines',
+            alt: 'SM Enterprise drone inspecting high-voltage power lines',
         },
         {
             title: 'Agriculture',
