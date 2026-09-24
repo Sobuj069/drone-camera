@@ -11,12 +11,12 @@ export default function AnnouncementBar() {
         <aside className="bg-[#f7f8f9] border-b border-[#ebebeb] text-[#2c2e30] py-2 px-4 text-center text-xs flex justify-between items-center relative z-40" data-purpose="notification-banner">
             <div className="w-6 hidden md:block" />
             <div className="mx-auto flex items-center justify-center space-x-1 font-normal">
-                <span>Download the DJI Store app and be the first to experience the obstacle sensing of DJI virtually.</span>
+                <span>Welcome to SM Gadgets Shop — Explore our latest flagship drones, gimbal cameras, and premium gear.</span>
                 <Link
-                    href="/products/aero-mavic-4-pro"
+                    href="/products"
                     className="text-[#0070d5] hover:underline inline-flex items-center ml-1 font-medium"
                 >
-                    <span>Download the App</span>
+                    <span>Shop Now</span>
                     <ChevronRight className="w-3 h-3 ml-0.5" />
                 </Link>
             </div>

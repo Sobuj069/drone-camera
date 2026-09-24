@@ -126,7 +126,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <h4 className="text-white text-xs font-semibold mb-1.5">Subscribe</h4>
-                            <p className="text-[11px] text-[#707473] mb-2.5">Get the latest news from DJI</p>
+                            <p className="text-[11px] text-[#707473] mb-2.5">Get the latest news from SM Gadgets Shop</p>
                             {/* Subscribe Input */}
                             <form onSubmit={handleNewsletterSubmit} className="relative flex items-center">
                                 <input
@@ -159,7 +159,7 @@ export default function Footer() {
                 <div className="py-6 border-b border-[#21262d] flex flex-col xl:flex-row items-center justify-between gap-6">
                     {/* Left: Solid Colorful Social Media Icons */}
                     <div className="flex flex-col sm:flex-row items-center gap-3.5">
-                        <span className="text-[#8c9094] text-xs font-semibold uppercase tracking-wider">Follow DJI:</span>
+                        <span className="text-[#8c9094] text-xs font-semibold uppercase tracking-wider">Follow Us:</span>
                         <div className="flex items-center space-x-2.5">
                             {/* Facebook */}
                             <a
@@ -276,9 +276,9 @@ export default function Footer() {
 
                 {/* Copyright Sub-footer */}
                 <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-[#606469]">
-                    <p>Copyright © 2026 DJI All Rights Reserved.</p>
+                    <p>Copyright © 2026 SM Gadgets Shop. All Rights Reserved.</p>
                     <div className="flex items-center space-x-4 mt-3 md:mt-0">
-                        <Link className="hover:text-gray-400" href="/about">DJI Privacy Policy</Link>
+                        <Link className="hover:text-gray-400" href="/about">Privacy Policy</Link>
                         <span>|</span>
                         <Link className="hover:text-gray-400" href="/about">Use of Cookies</Link>
                         <span>|</span>

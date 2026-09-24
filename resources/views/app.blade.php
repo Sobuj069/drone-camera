@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title inertia>{{ config('app.name', 'DJI - The World Leader in Camera Drones and Aerial Photography') }}</title>
+        <title inertia>{{ config('app.name', 'SM Gadgets Shop — Premium Drones, Cameras & Tech Gadgets') }}</title>
 
         <!-- Scripts -->
         @viteReactRefresh

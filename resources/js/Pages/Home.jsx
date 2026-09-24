@@ -20,7 +20,7 @@ export default function Home({
 }) {
     return (
         <MainLayout>
-            <Head title="DJI - The World Leader in Camera Drones and Aerial Photography" />
+            <Head title="SM Gadgets Shop — Premium Drones, Cameras & Tech Gadgets" />
 
             {/* 1. Hero Multi-Slide Showcase */}
             <HeroBannerSlider banners={banners} />

@@ -37,11 +37,24 @@ export default function Navbar() {
                 <div className="max-w-[1440px] mx-auto px-6 h-[58px] flex items-center justify-between">
                     {/* Brand Logo and Primary Nav */}
                     <div className="flex items-center space-x-8">
-                        {/* DJI Official Wordmark Logo */}
-                        <Link aria-label="DJI Homepage" className="flex items-center text-black group" href="/">
-                            <svg className="h-[22px] w-auto fill-current group-hover:text-[#0070d5] transition-colors" viewBox="0 0 82 30">
-                                <path d="M12.986 0H0v29.54h12.986c8.536 0 14.44-5.748 14.44-14.77C27.426 5.748 21.522 0 12.986 0zm-6.233 23.34V6.2h6.233c4.896 0 8.016 3.42 8.016 8.57 0 5.15-3.12 8.57-8.016 8.57H6.753zm26.963 6.2h6.425V0h-6.425v29.54zm22.483-8.862c-3.12 0-5.18-1.52-5.18-4.43V0h-6.425v16.248c0 7.378 4.704 13.292 11.605 13.292 8.44 0 14.152-5.938 14.152-14.77V0h-6.425v14.77c0 5.15-3.12 8.57-7.727 8.57z" />
-                            </svg>
+                        {/* SM Gadgets Shop Brand Logo */}
+                        <Link aria-label="SM Gadgets Shop Homepage" className="flex items-center gap-2.5 group select-none" href="/">
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#005bb5] via-[#0070d5] to-[#0099ff] flex items-center justify-center text-white shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200">
+                                <span className="font-black text-[15px] tracking-tighter leading-none">SM</span>
+                            </div>
+                            <div className="flex flex-col justify-center">
+                                <div className="flex items-center gap-1.5">
+                                    <span className="text-[15px] font-black tracking-tight text-gray-950 leading-none group-hover:text-[#0070d5] transition-colors">
+                                        SM GADGETS
+                                    </span>
+                                    <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-blue-50 text-[#0070d5] border border-blue-200/60 leading-none">
+                                        SHOP
+                                    </span>
+                                </div>
+                                <span className="text-[9px] font-medium tracking-wider text-gray-400 uppercase leading-none mt-0.5">
+                                    Drones & Tech
+                                </span>
+                            </div>
                         </Link>
 
                         {/* Main Categories Links */}
