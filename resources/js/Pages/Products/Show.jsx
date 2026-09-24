@@ -44,29 +44,25 @@ export default function Show({ product, relatedProducts = [] }) {
     const [selectedPackage, setSelectedPackage] = useState('fly_more');
     const [quantity, setQuantity] = useState(1);
 
-    const rawColors = product.colors;
-    const productColors = Array.isArray(rawColors)
-        ? rawColors
-        : typeof rawColors === 'string'
-        ? JSON.parse(rawColors || '[]')
-        : [];
+    const safeJsonParse = (val, fallback) => {
+        if (!val) return fallback;
+        if (typeof val === 'object') return val;
+        if (typeof val === 'string') {
+            try {
+                return JSON.parse(val);
+            } catch (e) {
+                return fallback;
+            }
+        }
+        return fallback;
+    };
 
-    const rawSpecs = product.specs;
-    const productSpecs = (typeof rawSpecs === 'object' && rawSpecs !== null)
-        ? rawSpecs
-        : typeof rawSpecs === 'string'
-        ? JSON.parse(rawSpecs || '{}')
-        : {};
-
-    const rawFeatures = product.overview_features;
-    const productFeatures = Array.isArray(rawFeatures)
-        ? rawFeatures
-        : typeof rawFeatures === 'string'
-        ? JSON.parse(rawFeatures || '[]')
-        : [];
+    const productColors = safeJsonParse(product.colors, []);
+    const productSpecs = safeJsonParse(product.specs, {});
+    const productFeatures = safeJsonParse(product.overview_features, []);
 
     const [selectedColor, setSelectedColor] = useState(
-        productColors[0]?.name || 'Standard Graphite Grey'
+        (Array.isArray(productColors) && productColors[0]?.name) || 'Standard Graphite Grey'
     );
 
     const basePrice = Number(product.price) || 999;

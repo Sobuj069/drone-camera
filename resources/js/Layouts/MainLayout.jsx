@@ -9,20 +9,18 @@ import { CartProvider } from '../Context/CartContext';
 
 export default function MainLayout({ children }) {
     return (
-        <CartProvider>
-            <div className="min-h-screen flex flex-col bg-white text-[#212121] selection:bg-[#0070d5] selection:text-white">
-                <FlashToast />
-                <AnnouncementBar />
-                <Navbar />
+        <div className="min-h-screen flex flex-col bg-white text-[#212121] selection:bg-[#0070d5] selection:text-white">
+            <FlashToast />
+            <AnnouncementBar />
+            <Navbar />
 
-                <main className="flex-1">
-                    {children}
-                </main>
+            <main className="flex-1">
+                {children}
+            </main>
 
-                <FloatingWidgets />
-                <CookieConsent />
-                <Footer />
-            </div>
-        </CartProvider>
+            <FloatingWidgets />
+            <CookieConsent />
+            <Footer />
+        </div>
     );
 }

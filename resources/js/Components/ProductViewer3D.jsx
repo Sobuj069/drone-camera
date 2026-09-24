@@ -56,25 +56,31 @@ export default function ProductViewer3D({ product }) {
     const controlsRef = useRef();
     const cameraRef = useRef();
 
-    // Parse safely
-    const rawColors = product?.colors;
-    const colors = Array.isArray(rawColors)
-        ? rawColors
-        : typeof rawColors === 'string'
-        ? JSON.parse(rawColors || '[]')
-        : [
-              { name: 'Platinum Silver Metallic', hex: '#d4d8df', label: 'Platinum Silver' },
-              { name: 'Space Grey Titanium', hex: '#4b5563', label: 'Space Grey' },
-              { name: 'Stealth Obsidian', hex: '#181a20', label: 'Carbon Obsidian' },
-              { name: 'Arctic Glacier White', hex: '#f8fafc', label: 'Glacier White' },
-          ];
+    const safeJsonParse = (val, fallback) => {
+        if (!val) return fallback;
+        if (typeof val === 'object') return val;
+        if (typeof val === 'string') {
+            try {
+                return JSON.parse(val);
+            } catch (e) {
+                return fallback;
+            }
+        }
+        return fallback;
+    };
 
-    const rawGallery = product?.gallery;
-    const gallery = Array.isArray(rawGallery)
-        ? rawGallery
-        : typeof rawGallery === 'string'
-        ? JSON.parse(rawGallery || '[]')
-        : [product?.thumbnail_url || '/images/products/mavic-4-pro.jpg'];
+    const fallbackColors = [
+        { name: 'Platinum Silver Metallic', hex: '#d4d8df', label: 'Platinum Silver' },
+        { name: 'Space Grey Titanium', hex: '#4b5563', label: 'Space Grey' },
+        { name: 'Stealth Obsidian', hex: '#181a20', label: 'Carbon Obsidian' },
+        { name: 'Arctic Glacier White', hex: '#f8fafc', label: 'Glacier White' },
+    ];
+
+    const parsedColors = safeJsonParse(product?.colors, fallbackColors);
+    const colors = Array.isArray(parsedColors) && parsedColors.length > 0 ? parsedColors : fallbackColors;
+
+    const parsedGallery = safeJsonParse(product?.gallery, [product?.thumbnail_url || '/images/products/mavic-4-pro.jpg']);
+    const gallery = Array.isArray(parsedGallery) && parsedGallery.length > 0 ? parsedGallery : [product?.thumbnail_url || '/images/products/mavic-4-pro.jpg'];
 
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const [selectedColor, setSelectedColor] = useState(colors[0]?.hex || '#d4d8df');
