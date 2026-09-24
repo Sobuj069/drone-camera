@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 48" width="84" height="48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 48" width="84" height="48">
+  <rect width="84" height="48" rx="8" fill="#FFFFFF"/>
   <g transform="translate(10, 12)">
     <!-- Nagad Swirl Circle on Left -->
     <g transform="translate(0, 0)">
@@ -7,7 +8,7 @@
       <circle cx="9.5" cy="12.5" r="3" fill="#FFFFFF"/>
     </g>
     <!-- 'নগদ' Vector Paths on Right -->
-    <g fill="#FFFFFF" transform="translate(28, 4)">
+    <g fill="#ED1C24" transform="translate(28, 4)">
       <!-- Matra (top line) -->
       <rect x="0" y="0" width="34" height="1.8" rx="0.5"/>
       <!-- 'ন' (Na) -->
