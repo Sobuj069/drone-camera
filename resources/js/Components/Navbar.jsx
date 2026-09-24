@@ -34,24 +34,24 @@ export default function Navbar() {
                 }`}
                 data-purpose="site-navigation"
             >
-                <div className="max-w-[1440px] mx-auto px-6 h-[58px] flex items-center justify-between">
+                <div className="max-w-[1440px] mx-auto px-3 sm:px-6 h-[58px] flex items-center justify-between">
                     {/* Brand Logo and Primary Nav */}
-                    <div className="flex items-center space-x-8">
+                    <div className="flex items-center space-x-3 sm:space-x-8 min-w-0">
                         {/* SM Gadgets Shop Brand Logo */}
-                        <Link aria-label="SM Gadgets Shop Homepage" className="flex items-center gap-2.5 group select-none" href="/">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#005bb5] via-[#0070d5] to-[#0099ff] flex items-center justify-center text-white shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200">
-                                <span className="font-black text-[15px] tracking-tighter leading-none">SM</span>
+                        <Link aria-label="SM Gadgets Shop Homepage" className="flex items-center gap-2 sm:gap-2.5 group select-none shrink-0" href="/">
+                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#005bb5] via-[#0070d5] to-[#0099ff] flex items-center justify-center text-white shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200">
+                                <span className="font-black text-[13px] sm:text-[15px] tracking-tighter leading-none">SM</span>
                             </div>
                             <div className="flex flex-col justify-center">
-                                <div className="flex items-center gap-1.5">
-                                    <span className="text-[15px] font-black tracking-tight text-gray-950 leading-none group-hover:text-[#0070d5] transition-colors">
+                                <div className="flex items-center gap-1 sm:gap-1.5">
+                                    <span className="text-[13px] sm:text-[15px] font-black tracking-tight text-gray-950 leading-none group-hover:text-[#0070d5] transition-colors whitespace-nowrap">
                                         SM GADGETS
                                     </span>
-                                    <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-blue-50 text-[#0070d5] border border-blue-200/60 leading-none">
+                                    <span className="text-[8px] sm:text-[9px] font-extrabold uppercase px-1 sm:px-1.5 py-0.5 rounded bg-blue-50 text-[#0070d5] border border-blue-200/60 leading-none">
                                         SHOP
                                     </span>
                                 </div>
-                                <span className="text-[9px] font-medium tracking-wider text-gray-400 uppercase leading-none mt-0.5">
+                                <span className="hidden sm:block text-[9px] font-medium tracking-wider text-gray-400 uppercase leading-none mt-0.5">
                                     Drones & Tech
                                 </span>
                             </div>
@@ -84,12 +84,12 @@ export default function Navbar() {
                     </div>
 
                     {/* Right Action Items (Search, Profile, Region, Store CTA) */}
-                    <div className="flex items-center space-x-5 text-[#333]">
+                    <div className="flex items-center space-x-2 sm:space-x-4 md:space-x-5 text-[#333] shrink-0">
                         {/* Search */}
                         <button
                             onClick={() => setSearchOpen(true)}
                             aria-label="Search"
-                            className="p-1.5 hover:text-[#0070d5] transition"
+                            className="p-1 sm:p-1.5 hover:text-[#0070d5] transition"
                         >
                             <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
@@ -100,7 +100,7 @@ export default function Navbar() {
                         <a
                             href="/admin"
                             aria-label="Account"
-                            className="p-1.5 hover:text-[#0070d5] transition flex items-center gap-1"
+                            className="p-1 sm:p-1.5 hover:text-[#0070d5] transition flex items-center gap-1"
                             title="Admin Portal"
                         >
                             <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@ export default function Navbar() {
                         {/* Store Button */}
                         <Link
                             href="/products"
-                            className="bg-[#0070d5] hover:bg-[#005bb5] text-white px-4 py-1.5 rounded-full text-[13px] font-medium flex items-center space-x-1.5 transition duration-150"
+                            className="bg-[#0070d5] hover:bg-[#005bb5] text-white px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-[13px] font-medium flex items-center space-x-1 sm:space-x-1.5 transition duration-150 shadow-sm"
                         >
                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
@@ -157,7 +157,7 @@ export default function Navbar() {
                         {/* Mobile Menu Toggle */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="p-1.5 text-gray-700 hover:text-[#0070d5] lg:hidden"
+                            className="p-1 sm:p-1.5 text-gray-700 hover:text-[#0070d5] lg:hidden"
                             aria-label="Toggle menu"
                         >
                             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

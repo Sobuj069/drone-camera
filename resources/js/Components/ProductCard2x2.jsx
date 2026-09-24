@@ -34,8 +34,8 @@ export default function ProductCard2x2() {
     ];
 
     return (
-        <section className="max-w-[1440px] mx-auto px-3 sm:px-4 lg:px-6 py-2 sm:py-3 select-none" data-purpose="featured-2x2-showcase">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
+        <section className="max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-6 py-2 sm:py-3 select-none" data-purpose="featured-2x2-showcase">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
                 {cards.map((card) => (
                     <Link
                         key={card.id}
