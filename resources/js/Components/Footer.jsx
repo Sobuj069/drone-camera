@@ -233,42 +233,30 @@ export default function Footer() {
                     {/* Right: Payment Gateways & MFS Badges */}
                     <div className="flex flex-col sm:flex-row items-center gap-3.5">
                         <span className="text-[#8c9094] text-xs font-semibold uppercase tracking-wider">Secured Payments:</span>
-                        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+                        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
                             {/* 1. bKash */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="bKash MFS">
-                                <img src="/images/payments/bkash.png" alt="bKash" className="h-7.5 sm:h-8 w-auto object-contain block" />
+                            <div className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="bKash MFS">
+                                <img src="/images/payments/bkash.svg" alt="bKash" className="w-full h-full object-contain block" />
                             </div>
-                            {/* 2. Nagad */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="Nagad MFS">
-                                <img src="/images/payments/nagad.png" alt="Nagad" className="h-7.5 sm:h-8 w-auto object-contain block" />
+                            {/* 2. Visa */}
+                            <div className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Visa">
+                                <img src="/images/payments/visa.svg" alt="Visa" className="w-full h-full object-contain block" />
                             </div>
-                            {/* 3. DBBL Rocket */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="DBBL Rocket">
-                                <img src="/images/payments/rocket.png" alt="Rocket" className="h-7.5 sm:h-8 w-auto object-contain block" />
+                            {/* 3. Mastercard */}
+                            <div className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Mastercard">
+                                <img src="/images/payments/mastercard.svg" alt="Mastercard" className="w-full h-full object-contain block" />
                             </div>
-                            {/* 4. SureCash */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="SureCash">
-                                <img src="/images/payments/surecash.png" alt="SureCash" className="h-7.5 sm:h-8 w-auto object-contain block" />
+                            {/* 4. American Express */}
+                            <div className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="American Express">
+                                <img src="/images/payments/amex.svg" alt="American Express" className="w-full h-full object-contain block" />
                             </div>
-                            {/* 5. Upay */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="Upay MFS">
-                                <img src="/images/payments/upay.png" alt="Upay" className="h-7.5 sm:h-8 w-auto object-contain block" />
+                            {/* 5. Nagad */}
+                            <div className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Nagad MFS">
+                                <img src="/images/payments/nagad.svg" alt="Nagad" className="w-full h-full object-contain block" />
                             </div>
-                            {/* 6. MCash */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="MCash Islami Bank">
-                                <img src="/images/payments/mcash.png" alt="MCash" className="h-7.5 sm:h-8 w-auto object-contain block" />
-                            </div>
-                            {/* 7. Visa */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="Visa">
-                                <img src="/images/payments/visa.png" alt="Visa" className="h-7.5 sm:h-8 w-auto object-contain block" />
-                            </div>
-                            {/* 8. Mastercard */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="Mastercard">
-                                <img src="/images/payments/mastercard.png" alt="Mastercard" className="h-7.5 sm:h-8 w-auto object-contain block" />
-                            </div>
-                            {/* 9. American Express */}
-                            <div className="hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-lg overflow-hidden" title="American Express">
-                                <img src="/images/payments/amex.png" alt="American Express" className="h-7.5 sm:h-8 w-auto object-contain block" />
+                            {/* 6. Upay */}
+                            <div className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Upay MFS">
+                                <img src="/images/payments/upay.svg" alt="Upay" className="w-full h-full object-contain block" />
                             </div>
                         </div>
                     </div>
