@@ -16,10 +16,10 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-[#101418] text-[#8c9094] text-xs pt-12 pb-24" data-purpose="main-footer">
-            <div className="max-w-[1440px] mx-auto px-6">
+        <footer className="bg-[#101418] text-[#8c9094] text-xs pt-8 sm:pt-12 pb-16 sm:pb-24 select-none" data-purpose="main-footer">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
                 {/* Multi-column link directory */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-8 pb-12 border-b border-[#21262d]">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-6 sm:gap-8 pb-8 sm:pb-12 border-b border-[#21262d]">
                     {/* Column 1: Product Categories & Service Plans */}
                     <div className="space-y-6">
                         <div>

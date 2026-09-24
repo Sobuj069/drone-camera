@@ -195,42 +195,41 @@ export default function ProductViewer3D({ product }) {
                 )}
             </div>
 
-            {/* Bottom Studio Controls Overlay (Finish Swatches & Interactive Controls) */}
-            <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-col md:flex-row items-stretch md:items-end justify-between gap-4 pointer-events-none">
-                {/* Colorway Finish Switcher */}
-                <div className="pointer-events-auto p-2.5 sm:p-3 rounded-2xl bg-white/90 backdrop-blur-2xl border border-gray-200 shadow-lg shadow-gray-200/50 flex items-center space-x-3">
-                    <span className="text-xs font-semibold text-[#707473] pl-1">Finish:</span>
-                    <div className="flex items-center space-x-2">
-                        {colors.map((c, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setSelectedColor(c.hex)}
-                                className={`group relative p-1 rounded-full border transition-all ${
-                                    selectedColor === c.hex
-                                        ? 'border-[#0070d5] ring-2 ring-blue-400/30 scale-110 shadow-md'
-                                        : 'border-gray-300 hover:border-gray-500'
-                                }`}
-                                title={c.name}
+            {/* Top-Left Finish Colorway Switcher */}
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 pointer-events-auto p-1.5 sm:p-2.5 rounded-xl bg-white/90 backdrop-blur-xl border border-gray-200 shadow-md shadow-gray-200/40 flex items-center space-x-2">
+                <span className="text-[11px] sm:text-xs font-semibold text-[#707473] pl-1 hidden xs:inline">Finish:</span>
+                <div className="flex items-center space-x-1.5 sm:space-x-2">
+                    {colors.map((c, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setSelectedColor(c.hex)}
+                            className={`group relative p-0.5 sm:p-1 rounded-full border transition-all ${
+                                selectedColor === c.hex
+                                    ? 'border-[#0070d5] ring-2 ring-blue-400/30 scale-105 sm:scale-110 shadow-sm'
+                                    : 'border-gray-300 hover:border-gray-500'
+                            }`}
+                            title={c.name}
+                        >
+                            <div
+                                className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full border border-gray-300/80 flex items-center justify-center"
+                                style={{ backgroundColor: c.hex }}
                             >
-                                <div
-                                    className="w-5 h-5 rounded-full border border-gray-300/80 flex items-center justify-center"
-                                    style={{ backgroundColor: c.hex }}
-                                >
-                                    {selectedColor === c.hex && (
-                                        <Check className={`w-3 h-3 ${c.hex === '#f8fafc' || c.hex === '#d4d8df' ? 'text-[#0070d5]' : 'text-white'}`} />
-                                    )}
-                                </div>
-                            </button>
-                        ))}
-                    </div>
+                                {selectedColor === c.hex && (
+                                    <Check className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${c.hex === '#f8fafc' || c.hex === '#d4d8df' ? 'text-[#0070d5]' : 'text-white'}`} />
+                                )}
+                            </div>
+                        </button>
+                    ))}
                 </div>
+            </div>
 
-                {/* Exploded View Slider & Toggles */}
-                <div className="pointer-events-auto flex flex-wrap items-center gap-2 p-2.5 sm:p-3 rounded-2xl bg-white/90 backdrop-blur-2xl border border-gray-200 shadow-lg shadow-gray-200/50">
-                    {/* Exploded View */}
-                    <div className="flex items-center space-x-2 px-2">
-                        <Layers className="w-4 h-4 text-[#0070d5]" />
-                        <span className="text-xs font-medium text-[#101418]">Exploded View:</span>
+            {/* Bottom Interactive Controls (Exploded View & Physics Toggles) */}
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-20 flex flex-wrap items-center justify-center sm:justify-end gap-1.5 sm:gap-2 pointer-events-none">
+                <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-xl bg-white/90 backdrop-blur-xl border border-gray-200 shadow-md shadow-gray-200/40">
+                    {/* Exploded View Slider */}
+                    <div className="flex items-center space-x-1.5 px-1.5 py-0.5">
+                        <Layers className="w-3.5 h-3.5 text-[#0070d5]" />
+                        <span className="text-[11px] sm:text-xs font-medium text-[#101418] hidden sm:inline">Exploded:</span>
                         <input
                             type="range"
                             min="0"
@@ -241,49 +240,49 @@ export default function ProductViewer3D({ product }) {
                                 setExploded(parseFloat(e.target.value));
                                 setAutoRotate(false);
                             }}
-                            className="w-20 accent-[#0070d5] cursor-pointer"
+                            className="w-14 sm:w-20 accent-[#0070d5] cursor-pointer"
                         />
                     </div>
 
-                    <div className="h-4 w-px bg-gray-200 hidden sm:block" />
+                    <div className="h-3.5 w-px bg-gray-200" />
 
                     {/* Propeller Physics Toggle */}
                     <button
                         onClick={() => setPropellersSpinning(!propellersSpinning)}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                        className={`px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-semibold transition-all flex items-center gap-1 ${
                             propellersSpinning
                                 ? 'bg-blue-50 text-[#0070d5] border border-blue-200 shadow-sm'
-                                : 'bg-gray-100 text-[#707473] hover:text-[#101418] hover:bg-gray-200'
+                                : 'bg-gray-100 text-[#707473] hover:text-[#101418]'
                         }`}
                     >
                         {propellersSpinning ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
-                        <span>Rotor Spin</span>
+                        <span>Rotor</span>
                     </button>
 
                     {/* Strobe Navigation Lights Toggle */}
                     <button
                         onClick={() => setLightsOn(!lightsOn)}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                        className={`px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-semibold transition-all flex items-center gap-1 ${
                             lightsOn
                                 ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 shadow-sm'
-                                : 'bg-gray-100 text-[#707473] hover:text-[#101418] hover:bg-gray-200'
+                                : 'bg-gray-100 text-[#707473] hover:text-[#101418]'
                         }`}
                     >
                         <Lightbulb className="w-3 h-3" />
-                        <span>Nav Beacon</span>
+                        <span>Beacon</span>
                     </button>
 
                     {/* Auto Rotate Toggle */}
                     <button
                         onClick={() => setAutoRotate(!autoRotate)}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                        className={`px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-semibold transition-all flex items-center gap-1 ${
                             autoRotate
                                 ? 'bg-blue-50 text-[#0070d5] border border-blue-200 shadow-sm'
-                                : 'bg-gray-100 text-[#707473] hover:text-[#101418] hover:bg-gray-200'
+                                : 'bg-gray-100 text-[#707473] hover:text-[#101418]'
                         }`}
                     >
                         <RotateCw className={`w-3 h-3 ${autoRotate ? 'animate-spin' : ''}`} />
-                        <span>Auto-Orbit</span>
+                        <span>Orbit</span>
                     </button>
                 </div>
             </div>

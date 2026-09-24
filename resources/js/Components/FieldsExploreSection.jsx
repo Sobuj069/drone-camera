@@ -30,15 +30,15 @@ export default function FieldsExploreSection({ categories = [] }) {
     ];
 
     return (
-        <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8" data-purpose="fields-grid">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-[#111] mb-8">
-                Explore DJI Products in Different Fields
+        <section className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8" data-purpose="fields-grid">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-[#111] mb-5 sm:mb-8">
+                Explore Products in Different Fields
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
                 {fields.map((field, idx) => (
                     <div
                         key={idx}
-                        className={`relative h-[440px] overflow-hidden group flex flex-col items-center text-center p-7 ${field.bgColor}`}
+                        className={`relative h-[320px] sm:h-[420px] overflow-hidden group flex flex-col items-center text-center p-5 sm:p-7 rounded-2xl ${field.bgColor}`}
                     >
                         <img
                             alt={field.alt}
@@ -47,13 +47,13 @@ export default function FieldsExploreSection({ categories = [] }) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/40" />
                         <div className="relative z-10 text-white mt-auto">
-                            <h3 className="text-2xl font-bold tracking-tight mb-1">
+                            <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-1">
                                 {field.title}
                             </h3>
-                            <p className="text-xs text-gray-300 font-light max-w-[200px] mx-auto mb-3">
+                            <p className="text-xs text-gray-300 font-light max-w-[240px] mx-auto mb-2.5 sm:mb-3">
                                 {field.subtitle}
                             </p>
-                            <Link className="text-xs text-white font-medium hover:underline inline-block mb-4" href={field.link}>
+                            <Link className="text-xs text-white font-medium hover:underline inline-block mb-2 sm:mb-4" href={field.link}>
                                 Learn More &gt;
                             </Link>
                         </div>
