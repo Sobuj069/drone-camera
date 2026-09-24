@@ -235,28 +235,28 @@ export default function Footer() {
                         <span className="text-[#8c9094] text-xs font-semibold uppercase tracking-wider">Secured Payments:</span>
                         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
                             {/* 1. bKash */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="bKash MFS">
-                                <img src="/images/payments/bkash.png" alt="bKash" className="w-full h-full object-contain block" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-1 border border-gray-200/80" title="bKash MFS">
+                                <img src="/images/payments/bkash.png?v=hd" alt="bKash" className="w-full h-full object-contain block" loading="lazy" />
                             </div>
                             {/* 2. Visa */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Visa">
-                                <img src="/images/payments/visa.png" alt="Visa" className="w-full h-full object-contain block" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-1 border border-gray-200/80" title="Visa">
+                                <img src="/images/payments/visa.png?v=hd" alt="Visa" className="w-full h-full object-contain block" loading="lazy" />
                             </div>
                             {/* 3. Mastercard */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Mastercard">
-                                <img src="/images/payments/mastercard.png" alt="Mastercard" className="w-full h-full object-contain block" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-1 border border-gray-200/80" title="Mastercard">
+                                <img src="/images/payments/mastercard.png?v=hd" alt="Mastercard" className="w-full h-full object-contain block" loading="lazy" />
                             </div>
                             {/* 4. American Express */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="American Express">
-                                <img src="/images/payments/amex.png" alt="American Express" className="w-full h-full object-contain block" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-1 border border-gray-200/80" title="American Express">
+                                <img src="/images/payments/amex.png?v=hd" alt="American Express" className="w-full h-full object-contain block" loading="lazy" />
                             </div>
                             {/* 5. Nagad */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Nagad MFS">
-                                <img src="/images/payments/nagad.png" alt="Nagad" className="w-full h-full object-contain block" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-1 border border-gray-200/80" title="Nagad MFS">
+                                <img src="/images/payments/nagad.png?v=hd" alt="Nagad" className="w-full h-full object-contain block" loading="lazy" />
                             </div>
                             {/* 6. Upay */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-0.5 border border-gray-200/60" title="Upay MFS">
-                                <img src="/images/payments/upay.png" alt="Upay" className="w-full h-full object-contain block" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-md cursor-pointer rounded-xl overflow-hidden bg-white flex items-center justify-center p-1 border border-gray-200/80" title="Upay MFS">
+                                <img src="/images/payments/upay.png?v=hd" alt="Upay" className="w-full h-full object-contain block" loading="lazy" />
                             </div>
                         </div>
                     </div>
