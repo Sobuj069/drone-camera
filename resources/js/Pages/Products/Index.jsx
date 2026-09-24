@@ -154,12 +154,12 @@ export default function Index({ products = [], categories = [], filters = {} }) 
                                     {/* Image Container */}
                                     <Link
                                         href={`/products/${product.slug}`}
-                                        className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#f8f9fa] mb-4 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500"
+                                        className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 flex items-center justify-center p-3 sm:p-4 group-hover:scale-[1.02] transition-transform duration-500"
                                     >
                                         <img
                                             src={product.thumbnail_url}
                                             alt={product.name}
-                                            className="w-full h-full object-cover object-center"
+                                            className="w-full h-full object-contain object-center"
                                         />
                                     </Link>
 

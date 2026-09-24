@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from '@inertiajs/react';
 import { ShoppingBag, Star, ArrowRight, Check, Eye } from 'lucide-react';
 import { useCart } from '../Context/CartContext';
@@ -95,7 +95,7 @@ export default function FeaturedProductsSection({ products = [] }) {
                             {/* Product Image Stage with Zoom */}
                             <Link
                                 href={`/products/${product.slug}`}
-                                className="relative aspect-[4/3] bg-gradient-to-b from-[#f8f9fa] to-[#eef0f3] overflow-hidden flex items-center justify-center p-3 sm:p-5"
+                                className="relative aspect-[4/3] bg-white overflow-hidden flex items-center justify-center p-3 sm:p-5"
                             >
                                 <img
                                     src={product.thumbnail_url || product.gallery?.[0] || '/images/cards/card-dji-flip-hd.jpg'}

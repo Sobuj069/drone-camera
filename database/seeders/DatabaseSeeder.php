@@ -11,6 +11,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,11 +21,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Disable foreign key checks for clean re-seeding
+        Schema::disableForeignKeyConstraints();
+        Product::truncate();
+        Category::truncate();
+        Banner::truncate();
+        Post::truncate();
+        NewsletterSubscriber::truncate();
+        Inquiry::truncate();
+        Schema::enableForeignKeyConstraints();
+
         // 1. Create Admin User for Filament
         User::firstOrCreate(
             ['email' => 'admin@drone.test'],
             [
-                'name' => 'Admin User',
+                'name' => 'SM Gadgets Admin',
                 'password' => Hash::make('password'),
                 'email_verified_at' => now(),
             ]
@@ -35,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'camera-drones',
             'tagline' => 'Capture the Extraordinary from Above',
             'description' => 'Flagship camera drones equipped with Hasselblad sensors, omnidirectional obstacle avoidance, and long-range transmission.',
-            'image_url' => 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80',
+            'image_url' => '/images/products/mavic-4-pro.jpg',
             'icon' => 'Drone',
             'order' => 1,
             'is_active' => true,
@@ -46,18 +58,18 @@ class DatabaseSeeder extends Seeder
             'slug' => 'handheld',
             'tagline' => 'Unshakable Cinematic Stabilization',
             'description' => 'Smartphone stabilizers, pocket cameras, and professional cinema gimbals designed for fluid movement.',
-            'image_url' => 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1000&q=80',
+            'image_url' => '/images/products/osmo-mobile-8.jpg',
             'icon' => 'Camera',
             'order' => 2,
             'is_active' => true,
         ]);
 
         $catEnterprise = Category::create([
-            'name' => 'Enterprise & Industrial',
+            'name' => 'Commercial & Enterprise',
             'slug' => 'enterprise',
             'tagline' => 'Industrial Intelligence & Thermal Mapping',
             'description' => 'Commercial aerial solutions engineered for infrastructure inspection, public safety, surveying, and energy grids.',
-            'image_url' => 'https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1000&q=80',
+            'image_url' => '/images/products/matrice-350.png',
             'icon' => 'Cpu',
             'order' => 3,
             'is_active' => true,
@@ -68,7 +80,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'agriculture',
             'tagline' => 'Intelligent Spraying & Crop Protection',
             'description' => 'High-capacity agricultural drones delivering precise spraying, granule spreading, and multispectral field mapping.',
-            'image_url' => 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1000&q=80',
+            'image_url' => '/images/products/agras-t50.png',
             'icon' => 'Leaf',
             'order' => 4,
             'is_active' => true,
@@ -79,13 +91,13 @@ class DatabaseSeeder extends Seeder
             'slug' => 'power',
             'tagline' => 'Portable Energy & Fast Charging Stations',
             'description' => 'Ultra-fast portable power stations and solar generators for off-grid outdoor filmmaking and expedition power.',
-            'image_url' => 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1000&q=80',
+            'image_url' => '/images/products/powerstation-2000.png',
             'icon' => 'Zap',
             'order' => 5,
             'is_active' => true,
         ]);
 
-        // 3. Products
+        // 3. Products with 100% Clean Studio Background Images
         Product::create([
             'category_id' => $catCameraDrones->id,
             'name' => 'AERO Mavic 4 Pro',
@@ -113,61 +125,19 @@ class DatabaseSeeder extends Seeder
                 'Takeoff Weight' => '958 g',
                 'Obstacle Sensing' => 'Omnidirectional Binocular Vision System + Bottom Infrared LiDAR',
                 'Max Wind Resistance' => '12 m/s (Level 6)',
-                'Internal Storage' => '64 GB High-Speed eMMC (expandable up to 512GB MicroSD)',
+                'Internal Storage' => '64 GB High-Speed eMMC',
                 'Operating Temperature' => '-10° to 40° C (14° to 104° F)',
-            ],
-            'hotspots' => [
-                [
-                    'id' => 'hasselblad-camera',
-                    'title' => 'Hasselblad Triple-Lens Array',
-                    'badge' => 'Optics',
-                    'position' => [0, -0.3, 1.35],
-                    'description' => 'Features a main 4/3 CMOS Hasselblad sensor flanked by a 70mm medium telephoto and 166mm telephoto with 3-axis mechanical stabilization.',
-                    'spec_highlight' => '5.1K/50fps ProRes & 10-bit D-Log M'
-                ],
-                [
-                    'id' => 'lidar-sensing',
-                    'title' => 'Omnidirectional LiDAR & APAS 5.0',
-                    'badge' => 'Safety',
-                    'position' => [0, 0.45, 0.4],
-                    'description' => 'Six high-precision optical fish-eye sensors work alongside downward LiDAR to map surroundings in real-time, executing smooth automated flight paths around obstacles.',
-                    'spec_highlight' => '360° Real-Time Collision Avoidance'
-                ],
-                [
-                    'id' => 'brushless-motor',
-                    'title' => 'High-Efficiency Propulsion System',
-                    'badge' => 'Power',
-                    'position' => [1.8, 0.35, 1.2],
-                    'description' => 'Custom CNC-machined brushless motors with quick-release folding carbon-fiber propellers generate over 14kg of total dynamic thrust.',
-                    'spec_highlight' => '75.6 km/h Max Speed & Level 6 Wind Resistance'
-                ],
-                [
-                    'id' => 'smart-battery',
-                    'title' => 'Intelligent Flight Battery 4S',
-                    'badge' => 'Endurance',
-                    'position' => [0, 0.25, -1.0],
-                    'description' => 'High-energy lithium-polymer chemistry with built-in battery management system (BMS), active self-heating for cold weather, and power status LED bar.',
-                    'spec_highlight' => '5000 mAh Capacity • 46-Min Max Flight'
-                ],
-                [
-                    'id' => 'antenna-array',
-                    'title' => 'AeroLink O4 Antenna Array',
-                    'badge' => 'Connectivity',
-                    'position' => [0, 0.85, 0.0],
-                    'description' => 'Quad-antenna transceiver architecture with 2T4R dual-frequency switching ensures uninterrupted crystal-clear 1080p 60fps monitor feed up to 20 km away.',
-                    'spec_highlight' => '20 km Range • <120ms Latency'
-                ],
             ],
             'colors' => [
                 ['name' => 'Stealth Obsidian', 'hex' => '#181a20', 'label' => 'Standard Carbon Matte'],
                 ['name' => 'Arctic Polar White', 'hex' => '#e2e8f0', 'label' => 'Glacier Edition'],
                 ['name' => 'Cyber Titanium Grey', 'hex' => '#64748b', 'label' => 'Limited Edition'],
             ],
-            'thumbnail_url' => 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80',
+            'thumbnail_url' => '/images/products/mavic-4-pro.jpg',
             'gallery' => [
-                'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80',
-                'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80',
-                'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1200&q=80',
+                '/images/products/mavic-4-pro.jpg',
+                '/images/products/mini-4-pro-angle.jpg',
+                '/images/products/mini-4-pro-top.jpg',
             ],
             'model_3d_type' => 'quadcopter_flagship',
             'is_featured' => true,
@@ -198,23 +168,14 @@ class DatabaseSeeder extends Seeder
                 'Video Resolution' => '4K @ 30fps EIS',
                 'Transmission' => 'Wi-Fi 6 Direct (up to 50m) / O4 Controller (up to 7km)',
             ],
-            'hotspots' => [
-                [
-                    'id' => 'palm-sensor',
-                    'title' => 'AI Subject Tracking Camera',
-                    'badge' => 'AI Vision',
-                    'position' => [0, 0, 0.8],
-                    'description' => 'Recognizes faces and human silhouettes for hands-free following.',
-                    'spec_highlight' => '4K HDR RockSteady Stabilization'
-                ]
-            ],
             'colors' => [
                 ['name' => 'Cloud White', 'hex' => '#f8fafc', 'label' => 'Standard'],
                 ['name' => 'Midnight Blue', 'hex' => '#1e293b', 'label' => 'Midnight'],
             ],
-            'thumbnail_url' => 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1000&q=80',
+            'thumbnail_url' => '/images/products/neo-360.jpg',
             'gallery' => [
-                'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1200&q=80',
+                '/images/products/neo-360.jpg',
+                '/images/products/mini-4-pro-front.jpg',
             ],
             'model_3d_type' => 'compact_drone',
             'is_featured' => true,
@@ -249,9 +210,9 @@ class DatabaseSeeder extends Seeder
                 ['name' => 'Slate Grey', 'hex' => '#334155', 'label' => 'Standard Matte'],
                 ['name' => 'Athens Gray', 'hex' => '#e2e8f0', 'label' => 'Platinum'],
             ],
-            'thumbnail_url' => 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80',
+            'thumbnail_url' => '/images/products/osmo-mobile-8.jpg',
             'gallery' => [
-                'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+                '/images/products/osmo-mobile-8.jpg',
             ],
             'model_3d_type' => 'gimbal_viewer',
             'is_featured' => true,
@@ -267,7 +228,7 @@ class DatabaseSeeder extends Seeder
             'subtitle' => 'Full-Frame 8K/75fps ProRes RAW Flying Cinema Platform with Centimeter-Level RTK',
             'badge' => 'Cinema 8K Full-Frame',
             'price' => 10999.00,
-            'original_price' => null,
+            'original_price' => 12499.00,
             'description' => "Engineered for high-end film productions, AERO Inspire Cinema 3 combines a full-frame 8K sensor with transformative 360° pan gimbal movement, dual-operator control, and centimeter-accurate RTK trajectory repeatability.",
             'overview_features' => [
                 ['title' => 'Full-Frame 8K Sensor', 'stat' => '8K/75fps RAW', 'desc' => 'Supports CinemaDNG and Apple ProRes RAW with 14+ stops dynamic range.'],
@@ -285,14 +246,84 @@ class DatabaseSeeder extends Seeder
             'colors' => [
                 ['name' => 'Carbon Matte', 'hex' => '#111827', 'label' => 'Standard Cinema'],
             ],
-            'thumbnail_url' => 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1000&q=80',
+            'thumbnail_url' => '/images/products/inspire-cinema-3.png',
             'gallery' => [
-                'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80',
+                '/images/products/inspire-cinema-3.png',
             ],
             'model_3d_type' => 'quadcopter_flagship',
             'is_featured' => true,
             'is_hero' => true,
             'order' => 4,
+        ]);
+
+        Product::create([
+            'category_id' => $catCameraDrones->id,
+            'name' => 'AERO Air 3S Dual Master',
+            'slug' => 'aero-air-3s',
+            'tagline' => 'Chase the View in Dual 4K',
+            'subtitle' => '1-inch CMOS Primary & 70mm Medium Tele Camera with 14 Stops Dynamic Range',
+            'badge' => 'Dual 1-Inch Master',
+            'price' => 1099.00,
+            'original_price' => 1299.00,
+            'description' => "AERO Air 3S redefines dual-camera travel drones: 1-inch primary and 70mm telephoto, both with 14 stops of dynamic range for landscapes and portraits that stand out. Enhanced with all-angle night vision avoidance.",
+            'overview_features' => [
+                ['title' => 'Dual Camera System', 'stat' => '1" CMOS + 70mm', 'desc' => 'Dual primary cameras with 14 stops dynamic range and Free Panorama mode.'],
+                ['title' => 'Nightscape Omnidirectional Sensing', 'stat' => 'Forward LiDAR', 'desc' => 'Safe flight navigation in dim light and nightscapes.'],
+                ['title' => 'Flight Endurance', 'stat' => '45 Minutes', 'desc' => 'Ultra-long battery life with power accumulation feature.'],
+            ],
+            'specs' => [
+                'Flight Time' => '45 minutes',
+                'Weight' => '724 g',
+                'Sensors' => '1-inch 50MP + 1/1.3" 48MP Medium Tele',
+                'Max Transmission' => '20 km HD O4',
+            ],
+            'colors' => [
+                ['name' => 'Aerospace Grey', 'hex' => '#475569', 'label' => 'Standard Edition'],
+            ],
+            'thumbnail_url' => '/images/products/air-3s-unfolded.jpg',
+            'gallery' => [
+                '/images/products/air-3s-unfolded.jpg',
+                '/images/products/air-3s-front.jpg',
+                '/images/products/air-3s-full.jpg',
+            ],
+            'model_3d_type' => 'quadcopter_flagship',
+            'is_featured' => true,
+            'is_hero' => false,
+            'order' => 5,
+        ]);
+
+        Product::create([
+            'category_id' => $catCameraDrones->id,
+            'name' => 'AERO Avata 2 FPV Explorer',
+            'slug' => 'aero-avata-2-fpv',
+            'tagline' => 'All-Out Immersion',
+            'subtitle' => 'Easy ACRO 4K Ultra-Wide FPV Drone with Built-In Propeller Guard',
+            'badge' => 'FPV High-Speed',
+            'price' => 999.00,
+            'original_price' => 1199.00,
+            'description' => "Step into immersive flight with AERO Avata 2: Easy ACRO flips, gesture-based motion control, and integrated propeller protection for agile, safe high-speed flights.",
+            'overview_features' => [
+                ['title' => '1/1.3" CMOS Super-Wide Camera', 'stat' => '4K/60fps HDR', 'desc' => '155° ultra-wide field of view with 10-bit D-Log M color profile.'],
+                ['title' => 'Integrated Propeller Guards', 'stat' => 'Turtle Mode', 'desc' => 'Durable unibody frame automatically flips back up if it lands upside down.'],
+                ['title' => 'Immersive O4 Video Transmission', 'stat' => '13 km HD', 'desc' => 'Ultra-low 24ms latency live feed straight to smart goggles.'],
+            ],
+            'specs' => [
+                'Flight Time' => '23 minutes',
+                'Weight' => '377 g',
+                'Camera Sensor' => '1/1.3-inch CMOS 4K/60fps',
+                'Internal Storage' => '46 GB High Speed',
+            ],
+            'colors' => [
+                ['name' => 'Stealth Matte Black', 'hex' => '#0f172a', 'label' => 'FPV Racing Edition'],
+            ],
+            'thumbnail_url' => '/images/products/avata-2-fpv.png',
+            'gallery' => [
+                '/images/products/avata-2-fpv.png',
+            ],
+            'model_3d_type' => 'compact_drone',
+            'is_featured' => true,
+            'is_hero' => false,
+            'order' => 6,
         ]);
 
         Product::create([
@@ -319,14 +350,14 @@ class DatabaseSeeder extends Seeder
             'colors' => [
                 ['name' => 'Agronomy Green & White', 'hex' => '#15803d', 'label' => 'Standard Agras'],
             ],
-            'thumbnail_url' => 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1000&q=80',
+            'thumbnail_url' => '/images/products/agras-t50.png',
             'gallery' => [
-                'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=80',
+                '/images/products/agras-t50.png',
             ],
             'model_3d_type' => 'quadcopter_flagship',
             'is_featured' => true,
             'is_hero' => false,
-            'order' => 5,
+            'order' => 7,
         ]);
 
         Product::create([
@@ -337,7 +368,7 @@ class DatabaseSeeder extends Seeder
             'subtitle' => 'IP55 Weather-Sealed Multi-Payload Heavy Drone with Night Vision & Thermal Inspection',
             'badge' => 'Enterprise Grade',
             'price' => 8990.00,
-            'original_price' => null,
+            'original_price' => 9990.00,
             'description' => "Built to conquer harsh environmental conditions, the Matrice 350 RTK provides multi-sensor gimbal payloads (Thermal, Laser Rangefinder, Zoom, Night Vision FPV) for power line inspections, SAR missions, and firefighting.",
             'overview_features' => [
                 ['title' => 'IP55 Weather Resistance', 'stat' => '-20° to 50°C', 'desc' => 'Fly safely in rain, snow, and extreme ambient temperatures.'],
@@ -353,17 +384,51 @@ class DatabaseSeeder extends Seeder
             'colors' => [
                 ['name' => 'Industrial Matte Black', 'hex' => '#0f172a', 'label' => 'Matrice Stealth'],
             ],
-            'thumbnail_url' => 'https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1000&q=80',
+            'thumbnail_url' => '/images/products/matrice-350.png',
             'gallery' => [
-                'https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1200&q=80',
+                '/images/products/matrice-350.png',
             ],
             'model_3d_type' => 'quadcopter_flagship',
             'is_featured' => true,
             'is_hero' => false,
-            'order' => 6,
+            'order' => 8,
         ]);
 
-        // 4. Hero Banners (Multi-slide carousel matching reference design)
+        Product::create([
+            'category_id' => $catPower->id,
+            'name' => 'AERO PowerStation 2000 Pro',
+            'slug' => 'aero-powerstation-2000',
+            'tagline' => 'Uninterrupted Clean Power',
+            'subtitle' => '1024Wh LiFePO4 Ultra-Fast Portable Power Station with 2600W AC Output',
+            'badge' => 'Power Solution',
+            'price' => 999.00,
+            'original_price' => 1199.00,
+            'description' => "All-scenario portable power station with 1024Wh capacity and 70-min full recharge. Equipped with dual 140W PD 3.1 USB-C fast charging ports, solar inputs, and 2600W peak surge output.",
+            'overview_features' => [
+                ['title' => '1024Wh LiFePO4 Cell', 'stat' => '4000+ Cycles', 'desc' => 'Long-lasting battery chemistry lasting over 10 years of daily use.'],
+                ['title' => 'Super Fast Recharge', 'stat' => '70 Mins (0-100%)', 'desc' => 'Ultra-quiet 23dB fast charging technology.'],
+                ['title' => 'Dual 140W USB-C PD', 'stat' => '2600W Output', 'desc' => 'Powers high-wattage heavy tools, cinema chargers, and drones.'],
+            ],
+            'specs' => [
+                'Capacity' => '1024 Wh (320,000 mAh)',
+                'AC Output' => '2600W Max Surge (2200W Constant)',
+                'Weight' => '13 kg',
+                'Solar Input' => 'Up to 800W Solar Fast Charging',
+            ],
+            'colors' => [
+                ['name' => 'Matte Grey & Silver', 'hex' => '#334155', 'label' => 'Standard Rugged'],
+            ],
+            'thumbnail_url' => '/images/products/powerstation-2000.png',
+            'gallery' => [
+                '/images/products/powerstation-2000.png',
+            ],
+            'model_3d_type' => 'compact_drone',
+            'is_featured' => true,
+            'is_hero' => false,
+            'order' => 9,
+        ]);
+
+        // 4. Hero Banners
         Banner::create([
             'badge' => 'TRIPLE-LENS CAMERA DRONE',
             'title' => 'AERO MAVIC 4 PRO',
@@ -372,7 +437,7 @@ class DatabaseSeeder extends Seeder
             'cta_link' => '/products/aero-mavic-4-pro',
             'cta_secondary_text' => 'Buy Now',
             'cta_secondary_link' => '/products/aero-mavic-4-pro',
-            'image_url' => 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=2000&q=85',
+            'image_url' => '/images/hero/hero-mavic-3-pro-4k.jpg',
             'order' => 1,
             'is_active' => true,
         ]);
@@ -383,9 +448,9 @@ class DatabaseSeeder extends Seeder
             'subtitle' => 'Unprecedented Precision & Cinematic Fluidity for Feature Films',
             'cta_text' => 'Explore Cinema',
             'cta_link' => '/products/aero-inspire-cinema-3',
-            'cta_secondary_text' => 'Contact Studio',
-            'cta_secondary_link' => '/contact',
-            'image_url' => 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=2000&q=85',
+            'cta_secondary_text' => 'Order Now',
+            'cta_secondary_link' => '/products/aero-inspire-cinema-3',
+            'image_url' => '/images/cinematic/shot-on-inspire3-4k.jpg',
             'order' => 2,
             'is_active' => true,
         ]);
@@ -398,7 +463,7 @@ class DatabaseSeeder extends Seeder
             'cta_link' => '/products/aero-neo-360',
             'cta_secondary_text' => 'Buy Now',
             'cta_secondary_link' => '/products/aero-neo-360',
-            'image_url' => 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=2000&q=85',
+            'image_url' => '/images/hero/hero-air-3s-4k.jpg',
             'order' => 3,
             'is_active' => true,
         ]);
@@ -411,12 +476,12 @@ class DatabaseSeeder extends Seeder
             'cta_link' => '/products/aero-osmo-mobile-8',
             'cta_secondary_text' => 'Order Now',
             'cta_secondary_link' => '/products/aero-osmo-mobile-8',
-            'image_url' => 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2000&q=85',
+            'image_url' => '/images/hero/hero-osmo-action-5-4k.jpg',
             'order' => 4,
             'is_active' => true,
         ]);
 
-        // 5. Innovation Editorial Posts (Matching "Standing at the Forefront of Innovation")
+        // 5. Innovation Editorial Posts
         Post::create([
             'title' => 'AERO Agriculture Annual Report: Empowering Precision Farming Across 50 Million Hectares',
             'slug' => 'aero-agriculture-annual-report',
@@ -424,7 +489,7 @@ class DatabaseSeeder extends Seeder
             'subtitle' => 'How autonomous aerial spraying and multispectral field mapping reduce chemical runoff while increasing crop yields.',
             'excerpt' => 'Our 2026 Global Agricultural Outlook details the impact of autonomous drone fleets on food security, water preservation, and sustainable crop protection across 65 countries.',
             'content' => "In 2026, precision agricultural technology reached a critical tipping point. Across the Americas, Europe, and Asia-Pacific, over 200,000 farmers and commercial growers adopted AERO Agras smart drone systems to survey, fertilize, and protect their crops with centimeter precision.\n\nBy leveraging high-resolution multispectral reflectance data and variable-rate spraying nozzles, growers reduced chemical pesticide usage by an average of 34% while increasing net yield by 11.2%.",
-            'image_url' => 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=80',
+            'image_url' => '/images/innovation/innovation-agriculture-4k.jpg',
             'read_time' => '5 min read',
             'is_featured' => true,
             'published_at' => now()->subDays(3),
@@ -436,38 +501,14 @@ class DatabaseSeeder extends Seeder
             'category_tag' => 'Engineering, Science & Technology',
             'subtitle' => 'Academy of Motion Picture Arts & Sciences recognizes groundbreaking developments in 4-axis camera stabilization.',
             'excerpt' => 'The Scientific and Technical Academy Awards celebrate innovations that have made substantial contributions to the craft of filmmaking.',
-            'content' => "The Academy of Motion Picture Arts and Sciences has presented AERO with a Scientific and Technical Achievement Award for the design and engineering of the Ronin 4D 4-axis camera stabilization system.\n\nThe system has fundamentally transformed cinema production by combining dynamic vertical Z-axis dampening with LiDAR active autofocus, giving cinematographers unprecedented handheld fluidity in complex tracking shots.",
-            'image_url' => 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80',
+            'content' => "The Academy of Motion Picture Arts and Sciences has presented AERO with a Scientific and Technical Achievement Award for the design and engineering of the Ronin 4D 4-axis camera stabilization system.",
+            'image_url' => '/images/innovation/innovation-award-4k.jpg',
             'read_time' => '4 min read',
             'is_featured' => true,
             'published_at' => now()->subDays(7),
         ]);
 
-        Post::create([
-            'title' => 'Next-Generation LiDAR & AI Obstacle Avoidance for Search & Rescue',
-            'slug' => 'next-gen-lidar-search-rescue',
-            'category_tag' => 'Enterprise Breakthrough',
-            'subtitle' => 'Autonomous night missions navigating dense forest canopies and mountainous terrains.',
-            'excerpt' => 'Emergency response teams deployed AERO Matrice thermal drones to locate lost hikers in zero-visibility blizzard conditions.',
-            'content' => "Search and rescue operations often occur in the most perilous environments. AERO's new real-time LiDAR point-cloud generation enables autonomous flight through dense tree canopies even when GPS signals are completely denied.",
-            'image_url' => 'https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1200&q=80',
-            'read_time' => '6 min read',
-            'is_featured' => false,
-            'published_at' => now()->subDays(12),
-        ]);
-
-        // 6. Sample Inquiries
-        Inquiry::create([
-            'name' => 'James Harrison',
-            'email' => 'james.harrison@cinefilms.com',
-            'phone' => '+1 (555) 234-8901',
-            'department' => 'Media & Cinema',
-            'subject' => 'Inspire Cinema 3 Production Fleet Inquiry',
-            'message' => 'We are preparing for a feature film shoot in Iceland this winter and would like to order two Inspire Cinema 3 units with full master wheel controllers and backup batteries.',
-            'status' => 'In Review',
-        ]);
-
-        // 7. Sample Subscriber
+        // 6. Sample Subscriber
         NewsletterSubscriber::create([
             'email' => 'tech.enthusiast@example.com',
             'ip_address' => '127.0.0.1',
