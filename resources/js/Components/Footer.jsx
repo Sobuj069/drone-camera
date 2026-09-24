@@ -238,34 +238,34 @@ export default function Footer() {
                             </svg>
                             <span>স্বীকৃত ব্যাংক ও সিকিউর পেমেন্ট মেথড:</span>
                         </div>
-                        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2">
+                        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
                             {/* 1. bKash */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="bKash">
-                                <img src="/images/payments/bkash.png" alt="bKash" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="bKash">
+                                <img src="/images/payments/bkash.svg" alt="bKash" className="h-6 sm:h-7 w-auto object-contain block" />
                             </div>
                             {/* 2. Visa */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="Visa">
-                                <img src="/images/payments/visa.png" alt="Visa" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="Visa">
+                                <img src="/images/payments/visa.svg" alt="Visa" className="h-5 sm:h-6 w-auto object-contain block" />
                             </div>
                             {/* 3. Mastercard */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="Mastercard">
-                                <img src="/images/payments/mastercard.png" alt="Mastercard" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="Mastercard">
+                                <img src="/images/payments/mastercard.svg" alt="Mastercard" className="h-6 sm:h-7 w-auto object-contain block" />
                             </div>
                             {/* 4. American Express */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="American Express">
-                                <img src="/images/payments/amex.png" alt="American Express" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="American Express">
+                                <img src="/images/payments/amex.svg" alt="American Express" className="h-6 sm:h-7 w-auto object-contain block rounded-sm" />
                             </div>
                             {/* 5. Nagad */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="Nagad">
-                                <img src="/images/payments/nagad.png" alt="Nagad" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="Nagad">
+                                <img src="/images/payments/nagad.svg" alt="Nagad" className="h-6 sm:h-7 w-auto object-contain block" />
                             </div>
                             {/* 6. Upay */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="Upay">
-                                <img src="/images/payments/upay.png" alt="Upay" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="Upay">
+                                <img src="/images/payments/upay.svg" alt="Upay" className="h-6 sm:h-7 w-auto object-contain block" />
                             </div>
                             {/* 7. DBBL Rocket */}
-                            <div className="bg-white rounded-md p-1 shadow-xs border border-gray-100 hover:shadow-md hover:scale-105 transition-all duration-200 flex items-center justify-center h-8 sm:h-9 w-11 sm:w-13 cursor-pointer" title="DBBL Rocket">
-                                <img src="/images/payments/rocket.png" alt="Rocket" className="h-5 sm:h-6 max-w-full object-contain block" />
+                            <div className="hover:scale-110 transition-transform duration-200 cursor-pointer flex items-center justify-center" title="DBBL Rocket">
+                                <img src="/images/payments/rocket.svg" alt="Rocket" className="h-5.5 sm:h-6.5 w-auto object-contain block" />
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 32" width="95" height="32">
-  <rect width="95" height="32" rx="4" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 32" width="95" height="32" fill="none">
   <g transform="translate(6, 4)">
-    <path d="M6 22L12 2L18 22L12 18L6 22Z" fill="#8C328E"/>
+    <path d="M6 22L12 2L18 22L12 18L6 22Z" fill="#A84DB5"/>
     <circle cx="12" cy="11" r="3" fill="#F47920"/>
-    <text x="24" y="18" fill="#8C328E" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="15" letterSpacing="-0.5">Rocket</text>
+    <text x="24" y="18" fill="#FFFFFF" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="15" letterSpacing="-0.5">Rocket</text>
   </g>
 </svg>
