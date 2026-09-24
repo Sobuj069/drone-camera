@@ -36,7 +36,7 @@ export default function Navbar() {
                 }`}
                 data-purpose="site-navigation"
             >
-                <div className="max-w-[1440px] mx-auto px-3 sm:px-6 h-[58px] flex items-center justify-between">
+                <div className="max-w-[1440px] mx-auto px-3 sm:px-6 h-[64px] flex items-center justify-between">
                     {/* Brand Logo and Primary Nav */}
                     <div className="flex items-center space-x-3 sm:space-x-8 min-w-0">
                         {/* SM Shop Brand Logo */}
@@ -44,7 +44,7 @@ export default function Navbar() {
                             <img
                                 src="/images/sm-logo-transparent.png"
                                 alt="SM Shop"
-                                className="h-8 sm:h-9 md:h-10 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition-transform duration-200 group-hover:scale-105"
+                                className="h-10 sm:h-12 md:h-13 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition-transform duration-200 group-hover:scale-105"
                             />
                         </Link>
 
