@@ -39,24 +39,13 @@ export default function Navbar() {
                 <div className="max-w-[1440px] mx-auto px-3 sm:px-6 h-[58px] flex items-center justify-between">
                     {/* Brand Logo and Primary Nav */}
                     <div className="flex items-center space-x-3 sm:space-x-8 min-w-0">
-                        {/* SM Gadgets Shop Brand Logo */}
-                        <Link aria-label="SM Gadgets Shop Homepage" className="flex items-center gap-2 sm:gap-2.5 group select-none shrink-0" href="/">
-                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#005bb5] via-[#0070d5] to-[#0099ff] flex items-center justify-center text-white shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200">
-                                <span className="font-black text-[13px] sm:text-[15px] tracking-tighter leading-none">SM</span>
-                            </div>
-                            <div className="flex flex-col justify-center">
-                                <div className="flex items-center gap-1 sm:gap-1.5">
-                                    <span className="text-[13px] sm:text-[15px] font-black tracking-tight text-gray-950 leading-none group-hover:text-[#0070d5] transition-colors whitespace-nowrap">
-                                        SM GADGETS
-                                    </span>
-                                    <span className="text-[8px] sm:text-[9px] font-extrabold uppercase px-1 sm:px-1.5 py-0.5 rounded bg-blue-50 text-[#0070d5] border border-blue-200/60 leading-none">
-                                        SHOP
-                                    </span>
-                                </div>
-                                <span className="hidden sm:block text-[9px] font-medium tracking-wider text-gray-400 uppercase leading-none mt-0.5">
-                                    Drones & Tech
-                                </span>
-                            </div>
+                        {/* SM Shop Brand Logo */}
+                        <Link aria-label="SM Shop Homepage" className="flex items-center group select-none shrink-0 py-1" href="/">
+                            <img
+                                src="/images/sm-logo-transparent.png"
+                                alt="SM Shop"
+                                className="h-8 sm:h-9 md:h-10 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition-transform duration-200 group-hover:scale-105"
+                            />
                         </Link>
 
                         {/* Main Categories Links */}
