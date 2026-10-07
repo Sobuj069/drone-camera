@@ -128,29 +128,17 @@ body:has(.aero-hero) {
     bottom: 0;
     width: 55%;
     background-size: cover;
-    background-position: center;
+    background-position: center 15%;
     display: flex;
     align-items: flex-end;
     z-index: 0;
 }
 
-/* Blue tinted overlay so the whole side reads as blue, not black/amber */
+/* Natural image colors; only a soft dark fade at the bottom so the text stays readable */
 .aero-hero__overlay {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(to top, rgba(3, 60, 110, .88) 0%, rgba(14, 116, 190, .45) 50%, rgba(56, 189, 248, .25) 100%);
-    mix-blend-mode: normal;
-}
-
-.aero-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #0ea5e9;
-    mix-blend-mode: color;
-    opacity: .55;
-    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, .65) 0%, rgba(0, 0, 0, .25) 28%, rgba(0, 0, 0, 0) 55%);
 }
 
 .aero-hero__content {

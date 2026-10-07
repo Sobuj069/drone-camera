@@ -1,5 +1,5 @@
 <x-filament-panels::page.simple>
-    <link rel="stylesheet" href="{{ asset('css/admin-login.css') }}?v=2">
+    <link rel="stylesheet" href="{{ asset('css/admin-login.css') }}?v=3">
     <script>
         // Keep this page light (blue theme) even if the OS/browser prefers dark mode.
         (function () {
