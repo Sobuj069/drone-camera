@@ -1,5 +1,14 @@
 <x-filament-panels::page.simple>
-    <link rel="stylesheet" href="{{ asset('css/admin-login.css') }}?v=1">
+    <link rel="stylesheet" href="{{ asset('css/admin-login.css') }}?v=2">
+    <script>
+        // Keep this page light (blue theme) even if the OS/browser prefers dark mode.
+        (function () {
+            const root = document.documentElement;
+            const force = () => root.classList.contains('dark') && root.classList.remove('dark');
+            force();
+            new MutationObserver(force).observe(root, { attributes: true, attributeFilter: ['class'] });
+        })();
+    </script>
 
     <aside class="aero-hero" style="background-image: url('{{ asset('images/admin-login-drone.jpg') }}')">
         <div class="aero-hero__overlay"></div>
