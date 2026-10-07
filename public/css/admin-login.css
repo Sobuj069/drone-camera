@@ -1,0 +1,97 @@
+/* AERO admin login: split-screen with drone/camera hero.
+   Scoped with :has(.aero-hero) so other Filament simple pages are untouched. */
+
+.fi-simple-layout:has(.aero-hero) {
+    margin-left: 55vw;
+    width: 45vw;
+    min-height: 100vh;
+}
+
+.fi-simple-layout:has(.aero-hero) .fi-simple-main {
+    max-width: 28rem;
+}
+
+.aero-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 55vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    z-index: 0;
+}
+
+.aero-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(9, 9, 11, .92) 0%, rgba(9, 9, 11, .35) 55%, rgba(9, 9, 11, .1) 100%);
+}
+
+.aero-hero__content {
+    position: relative;
+    padding: 3.5rem;
+    max-width: 35rem;
+    color: #fafafa;
+}
+
+.aero-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .375rem .875rem;
+    border-radius: 999px;
+    font-size: .8125rem;
+    font-weight: 500;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, .12);
+    border: 1px solid rgba(245, 158, 11, .35);
+    backdrop-filter: blur(6px);
+}
+
+.aero-hero h2 {
+    margin: 1.25rem 0 .75rem;
+    font-size: 2.75rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.aero-hero p {
+    color: #d4d4d8;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.aero-hero__stats {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+}
+
+.aero-hero__stats strong {
+    display: block;
+    font-size: 1.375rem;
+    color: #f59e0b;
+}
+
+.aero-hero__stats span {
+    font-size: .8125rem;
+    color: #a1a1aa;
+}
+
+/* Tablet / mobile: drop the hero, use full-width form */
+@media (max-width: 1023px) {
+    .fi-simple-layout:has(.aero-hero) {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .aero-hero {
+        display: none;
+    }
+}
